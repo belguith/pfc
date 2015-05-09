@@ -1,0 +1,20 @@
+
+
+/* Required */
+.container {width:404px;height:170px;position:relative;overflow:hidden}
+.slides {position:absolute;top:0;left:0}
+.slides div.slide {width:404px;position:absolute;left:0;display:none;font-family:Arial, Helvetica, sans-serif;font-size:1.17em;line-height:1.43em}
+.slides div.slide img {float:left;margin-right:28px}
+.slides div.slide cite {font-style:normal;padding-top:10px;display:block;margin-bottom:15px}
+.slides div.slide span {display:block;text-align:right;color:#000}
+.slides div.slide span b {display:block}
+/* Optional */
+#loopedSlider {width:404px;position:relative;clear:both}
+#loopedSlider .previous, #loopedSlider .next {display:block;width:21px;height:21px;background-repeat:no-repeat;background-position:0 0;position:absolute;right:0;top:-41px}
+#loopedSlider .previous {background-image:url(../images/prev.gif);right:26px}
+#loopedSlider .next {background-image:url(../images/next.gif)}
+
+.col-2{float:left}
+/* index.html */
+
+ .col-2 {width:404px}
