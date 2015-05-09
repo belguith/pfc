@@ -28,7 +28,7 @@ $password=$_POST['password'];
 				}
 				if($role==2)
 				{
-				header('Location: ../cpanel/index.php');	
+				header('Location: ../back/article.php');	
 				}
                
                }

@@ -84,7 +84,7 @@ width: 120px;
 
 margin: 10px;
 }
-
+/*modification kmar*/
 #logo_s
 {
 
@@ -93,8 +93,9 @@ margin-top : 5px;
 bottom:2px;
 margin-left: 1%;
 vertical-align : middle;
-height: 100px;
-width: 10%;
+height: 80px;
+margin-bottom:20px;
+width: 8%;
 
 }
 
@@ -212,8 +213,15 @@ transition : transform 0.9s ease;
 	
 }
 
+.titre_page
+{
+text-align:center;
 
-input[type="text"],input[type="password"],input[type="email"],input[type="tel"]{
+
+}
+
+
+input[type="text"],input[type="password"],input[type="email"],input[type="tel"],input[type="date"]{
 position :relative;
 border-radius : 5px;
 margin-top : 5%;
@@ -238,20 +246,34 @@ opacity : 1;
 
 /* Container */
 
-
+/*modif*/
 #container h2
 {
-font-family: Times new roman, serif;
-	font-style:italic;
+font-family: Benguit;
+	font-weight:bold;
 	text-decoration: none;
 	font-size: 1.6em;
-	margin-top : 10px;
+	margin-top : 15px;
+	color:#4e2501;
+	text-align:center;
 }
 
+#container h3
+{
+font-family: Benguit;
+	font-weight:bold;
+	text-decoration: none;
+	font-size: 1.2em;
+	margin-top : 15px;
+	color:#4e2501;
+	text-align:left;
+}
+
+/*modif*/
 #container p{
 margin-top :30px;
-font-family: Times new roman, serif;
-	font-style:italic;
+font-family: Palatino;
+	color:#2f1701;
 	text-decoration: none;
 	font-size: 1.2em;
 	text-align : justify;
@@ -259,8 +281,6 @@ font-family: Times new roman, serif;
 
 #partie_haute{
 margin-top : 40px;
-padding-left : 20px;
-padding-right : 20px;
 display : inline-block;
 background-color : rgba(255,255,255,0.5);
 
@@ -270,12 +290,12 @@ background-color : rgba(255,255,255,0.5);
 {
 display : inline-block;
 float : left;
-margin-left: 20px;
-margin-right: 20px;
+margin-left: 5%;
+margin-right: 5%;
 margin-top : 1%;
 text-align: justify;
  height: auto;
- width: 42%;
+ width: 40%;
 }
 
 .logo_aboutus
@@ -305,8 +325,8 @@ color: #663300;
 
 .description h2
 {
-	font-family: Times new roman, serif;
-	font-style:italic;
+	font-family: Benguit;
+	font-weight:bold;
 	text-decoration: none;
 	font-size: 1.6em;
 	text-align : center;
@@ -585,10 +605,11 @@ float:middle;
 .contact
 {
 font-family: arial;
+font-weight:bold;
 	
 	text-decoration: none;
 	font-size: 0.8em;
-color:#663300;
+color:#2f1701;
 text-align:center;
 
 }
@@ -617,7 +638,8 @@ height:38px;
 font-family: arial;
 text-decoration: none;
 font-size: 0.8em;
-color:#663300;
+font-weight:bold;
+color:#2f1701;
 text-align:center;
 
 }
@@ -642,6 +664,7 @@ h2{
 text-align : justify;
 margin-left :10%;
 margin-right:10%;
+
 }
 
 
@@ -893,7 +916,7 @@ margin-left : 5%;
 
 }
 .commentaire_form a{
-color: green;
+color: #3abc00;
 font-size: 1.2em;
 padding-bottom: 3px;
 text-decoration: none;
@@ -1002,11 +1025,11 @@ margin:auto;
 }
 .adresse_label
 {
-margin-top:1px;
+margin-top:1px!important;
 font-family:time new romans;
 font-weight:bold !important;
 font-size:1.2em !important;
-color:#2c1604;
+color:#2c1604 !important;
 
 }
 
@@ -1016,8 +1039,8 @@ margin-top:0px !important;
 margin-bottom : 10px !important;
 font-family:time new romans;
 font-size:1.2em;
-font-weight:bold;
-color:#46a805;
+font-weight:bold ;
+color:#309a02 !important;
 
 
 }
@@ -1131,7 +1154,7 @@ margin-top : 5%;
 height : auto;
 width : 50%;
 box-shadow: 0px 1px 2px #1c1a19;
-text-align : center-left;
+text-align : justify;
 color:#5a1e00;
 }
 .article_resa:hover
@@ -1209,6 +1232,9 @@ display : inline-block;
 width : 35%;
 margin-top : 2%;
 }
+
+/*  Slider testimonial */
+
 
 /*  Slider testimonial */
 
@@ -1332,3 +1358,5 @@ transition : transform 0.5s ease;
     text-shadow: 1px 2px 2px grey;
 	transform : scale(1.2) ;
 }
+
+
