@@ -1,0 +1,155 @@
+body{
+margin : 0;
+background: #D2691E;
+
+
+}
+
+
+/* MENU VERTICAL*/
+
+#side_bar_menu h2
+{
+
+	font-size: 1.9em;
+	text-align: justify-center;
+	color: #F5DEB3;
+	margin-left : 50px;
+	
+	
+}
+
+
+#side_bar_menu {
+
+  background: #D2691E;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 20%;
+  padding-top:  5%;
+  display : inline-block;
+  float : left;
+  min-width : 200px;
+  position : absolute;
+  margin-top: 40px;
+  height : 80%;
+  border-right : 1px solid #393939;
+  
+ 
+}
+
+#side_bar_menu li {
+  font: 100% "Lucida Grande";
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#side_bar_menu a {
+  background: #D2691E;
+  border-bottom: 1px solid #393939;
+  color: #F5DEB3;
+  display: block;
+  margin: 0;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: normal;
+}
+#side_bar_menu a:hover {
+  background: #CD853F url("images/hover.gif") left center no-repeat ;
+  color: #fff;
+  padding-bottom: 8px;
+  
+  cursor: hand;
+}
+
+
+/* COntenur de la page */
+
+#content
+{
+position : absolute;
+left : 400px;
+width : 60%;
+display : inline-block;
+float : right;
+margin : 0;
+min-width : 500px;
+
+
+
+}
+
+#content h2
+{
+
+	font-size: 1.9em;
+	text-align: justify;
+	color: #F5DEB3;
+	margin-top : 40px;
+	margin-left : 10px;
+	border-bottom: 1px solid #393939;
+	width : 100%;
+}
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin :10px;
+  
+  
+  
+}
+
+
+th {
+  background:CD853F;
+  line-height : 2.9em;
+  font-size: 1.1em;
+  font : "Lucida Grande";
+  text-transform: uppercase;
+  color:white;
+}
+
+tbody tr:nth-child(even) {
+   background-color: #F5DEB3;
+   line-height : 1.8em;
+   font-size: 100%;
+}
+
+tbody tr:nth-child(odd) {
+   background-color: #CD853F;
+   line-height : 1.8em;
+   font-size: 100%;
+}
+
+
+.btn
+{
+position : relative;
+margin-top : 10px;
+margin : 10px;
+border : 3px solid #CCC;
+background-color : transparent;
+line-height  :2.2em;
+font-size : 1.2em;
+padding : 5px;
+border-radius : 8px;
+text-decoration : none;
+
+
+}
+
+
+.btn:hover{
+
+  background-color: #CCC;
+
+}
+
+
+
+
