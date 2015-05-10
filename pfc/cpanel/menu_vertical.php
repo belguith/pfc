@@ -1,11 +1,11 @@
 
 
 
+
+<div id="side_bar_menu">
 <h2> Dar-Tak </h2>
-<div id="cssmenu">
 
-
-<ul name="list_tables">
+<ul name="list_tables" id="list_tables">
 
 <?php
 
@@ -20,7 +20,8 @@ echo "";
 
 while ($row=mysql_fetch_array($result))
 {
-	echo "<li> <a href='#' id='link' onclick='load();'>".$row{'table_name'}." </a></li> ";
+	echo "<li> <a href='javascript:;' title=".$row{'page_link'}." id=".$row{'table_name'}." '>".$row{'table_name'}." </a></li> ";
+
 	
 
 	

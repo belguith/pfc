@@ -58,12 +58,13 @@ background: #D2691E;
   font-weight: normal;
 }
 #side_bar_menu a:hover {
-  background: #CD853F url("images/hover.gif") left center no-repeat ;
+  background: #CD853F;
   color: #fff;
   padding-bottom: 8px;
   
   cursor: hand;
 }
+
 
 
 /* COntenur de la page */

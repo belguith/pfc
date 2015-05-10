@@ -1,5 +1,5 @@
 <? 
-include('config.php'); 
+include_once('data_base_connexion.php'); 
 if (isset($_GET['id_article']) ) { 
 $id_article = (int) $_GET['id_article']; 
 if (isset($_POST['submitted'])) { 

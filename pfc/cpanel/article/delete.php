@@ -1,5 +1,5 @@
 <? 
-include('config.php'); 
+include_once('data_base_connexion.php'); 
 $id_article = (int) $_GET['id_article']; 
 mysql_query("DELETE FROM `article` WHERE `id_article` = '$id_article' ") ; 
 echo (mysql_affected_rows()) ? "Row deleted.<br /> " : "Nothing deleted.<br /> "; 

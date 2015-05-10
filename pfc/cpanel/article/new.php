@@ -1,5 +1,5 @@
 <? 
-include('config.php'); 
+include_once('data_base_connexion.php'); 
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 $sql = "INSERT INTO `article` ( `lilbelle_article` ,  `description_article` ,  `image_article` ,  `date_article`  ) VALUES(  '{$_POST['lilbelle_article']}' ,  '{$_POST['description_article']}' ,  '{$_POST['image_article']}' ,  '{$_POST['date_article']}'  ) "; 

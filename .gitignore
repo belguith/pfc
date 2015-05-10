@@ -235,5 +235,8 @@ pip-log.txt
 favicon.ico
 generateur/*
 gestion_scol/*
+backoffice/*
+tn-show/*
+medical-link/*
 pfc.rar
 testmysql.php
