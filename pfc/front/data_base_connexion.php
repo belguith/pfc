@@ -9,7 +9,7 @@ $conn=mysql_connect($host,$user_name,$pwd)
 or die ("Can not Connect");
 
 
-mysql_select_db("dartak_bd");
+mysql_select_db("dar_tak_bd");
 
 
 

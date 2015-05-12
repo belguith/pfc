@@ -6,6 +6,7 @@
 
 <script type="text/javascript">
 window.onload = function() {
+	
 	$('#list_tables a').click(function () {
 		var lien = $(this).attr('title');
         $("#loader").attr("src", lien);
@@ -29,7 +30,9 @@ include_once 'menu_vertical.php';
 
 <h2> Titre Page</h2>
 
-<iframe width="100%"  src="" id="loader"></iframe>
+<iframe width="100%"  src="" id="loader">
+
+</iframe>
 
 
 </div>

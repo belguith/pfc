@@ -27,6 +27,8 @@
 		
 <script>
    $(function() {
+
+
      $('#imageslider').bjqs({
        width: '100%',
        height: 650,
@@ -39,6 +41,9 @@
        nexttext: '>'
      });
    });
+
+
+
 </script>
  </head>
     <body>

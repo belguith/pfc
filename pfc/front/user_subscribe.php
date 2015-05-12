@@ -13,9 +13,15 @@ $motdepasse=$_POST['motdepasse'];
 
 // creation de la requete pour inserer dans BDD //
 	$request="INSERT INTO client(nom_client,prenom_client,mail_client,tel_client,cin_client,login,motdepasse,role,) 
-			values('".$nom."' ,'".$prenom."','".$email."','".$num_tel."','".$cin."','".$pseudo."','".$motdepasse."' , '1' ) ";
+				VALUES('".$nom."' ,'".$prenom."','".$email."',".$num_tel.",".$cin.",'".$pseudo."','".$motdepasse."' , 2 ) ";
+				
+	//$request="INSERT INTO client (nom,role) VALUES ('belguith',1)";
+	
+	
+	
 			
 	$result = mysql_query($request) or die("Pb avec la requete: $request");
+	
 	
 
 

@@ -1,0 +1,81 @@
+
+table {
+  width: 90%;
+  margin :0;
+  height: auto;  
+}
+
+p{
+
+  width: 50%;
+}
+
+th {
+  background:transparent !important;
+  line-height : 2.9em;
+  font-size: 1.1em;
+  font : "Lucida Grande";
+  text-transform: uppercase;
+  color:white;
+}
+
+tbody tr:nth-child(even) {
+   background-color: #B28347 !important;
+   line-height : 1.8em;
+   font-size: 100%;
+}
+
+tbody tr:nth-child(odd) {
+   background-color: #A0522D !important;
+   line-height : 1.8em;
+   font-size: 100%;
+}
+
+
+
+
+input[type="text"],input[type="password"],input[type="email"],input[type="tel"],input[type="date"] ,textarea{
+position :relative;
+border-radius : 5px;
+margin-top : 5%;
+margin-bottom : 5px;
+padding : 1%;
+width : 60%;
+margin-left : 6%;
+margin-right : 10%;
+line-height : 30px;
+min-height : 40px;
+opacity : 1;
+resize : none;
+}
+
+
+
+
+.popup-button {
+  
+border: 3px solid #FFF !important;
+  padding: 2px !important;
+  background: transparent !important;
+  color: #FFF !important;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 1em !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  width : 80% !important;
+  max-width : 150px;
+  min-height : 40px;
+  margin: 1px !important;
+  border-radius: 2px !important;
+  text-align: center;
+  -webkit-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+  transition: all 0.3s !important;
+  }
+  
+.popup-button:hover{
+background : grey !important;
+
+}

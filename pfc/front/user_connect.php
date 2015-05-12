@@ -8,6 +8,9 @@ $login=$_POST['login'];
 $password=$_POST['password'];
 
 
+session_start();
+$_SESSION['login']=$login;
+$_SESSION['password']=$password;
 
 
 
@@ -16,26 +19,27 @@ $password=$_POST['password'];
                $request="SELECT * FROM client WHERE (login ='".$login."'  AND motdepasse = '".$password."' )"; 
                $result = mysql_query($request) or die("Pb avec la requete: $request");
                 
- 
-               //test de l'existance du login et password dans la BDD
-               if (mysql_num_rows($result) == 1){
-				$row=mysql_fetch_array($result);
-				$nom=$row{'nom_client'};
-				$role=$row{'role'};
-				if($role==1)
-				{
-					header('Location: acceuil.html');
-				}
-				if($role==2)
-				{
-				header('Location: ../back/article.php');	
-				}
-               
-               }
-               else{
-               echo "votre login et/ou votre password est incorrect";
-               }
-               mysql_close(); 
 
+				
+if(isset($_POST))
+{
+ 
+while($row=mysql_fetch_array($result))
+{
+	
+if ($row['login']==$_SESSION['login'])
+  {
+	if ($row['motdepasse']==$_SESSION['password'])
+    {
+	
+	HEADER('location:acceuil.php');
+    }	
+	else {echo "erreur";}
+  }	
+  
+}
+
+  }
+ 
 ?>
 
