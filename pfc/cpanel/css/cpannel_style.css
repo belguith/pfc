@@ -1,6 +1,7 @@
 body{
 margin : 0;
-background: #D2691E;
+background: #BD8D46;
+
 
 
 }
@@ -22,7 +23,7 @@ background: #D2691E;
 
 #side_bar_menu {
 
-  background: rgba(210,180,140,0.2);
+  background: #BD8D46;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -48,7 +49,7 @@ background: #D2691E;
 }
 
 #side_bar_menu a {
-  background: #D2691E;
+  background: #BD8D46;
   border-bottom: 1px solid #393939;
   color: #F5DEB3;
   display: block;
@@ -73,7 +74,7 @@ background: #D2691E;
 
 height: 95%;
 
-background-color: rgba(200,200,200,0.1);
+background-color: #BD8D46;
 
 border: 0;
 padding: 20px;
@@ -91,6 +92,7 @@ float : right;
 margin : 20px;
 min-width : 500px;
 height: 80%;
+border-left : 1px solid #393939;
 
 
 

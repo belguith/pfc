@@ -217,21 +217,7 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-2A3/CB.jpg
-2A3/cible1.php
-2A3/affichage_emp.php
-2A3/jquery_popup.css
-2A3/CRUD_emp.php
-2A3/fb.jpg
-2A3/config.php
-2A3/cv.php
-2A3/esprit.png
-2A3/jour.php
-2A3/jquery_popup.js
-2A3/my_style.css
-2A3/source1.html
-2A3/table_creation.php
-2A3/test_popup.html
+2A3/*
 favicon.ico
 generateur/*
 gestion_scol/*
@@ -240,3 +226,8 @@ tn-show/*
 medical-link/*
 pfc.rar
 testmysql.php
+/TpSymfony/*
+TpSymfony/*
+TpSymfony/app/*
+TpSymfony/app/cache/dev/annotations/43b555f9eb0fa2504aebdf7dc2e143b0f703ed31#indexAction.cache.php
+TpSymfony/app/cache/dev/annotations/43b555f9eb0fa2504aebdf7dc2e143b0f703ed31#indexAction.cache.php

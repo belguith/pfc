@@ -32,7 +32,7 @@ if ($row['login']==$_SESSION['login'])
 	if ($row['motdepasse']==$_SESSION['password'])
     {
 	
-	HEADER('location:acceuil.php');
+	HEADER('location:acceuil.html');
     }	
 	else {echo "erreur";}
   }	

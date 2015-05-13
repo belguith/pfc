@@ -7,7 +7,7 @@
 include_once('../data_base_connexion.php');  
 
   
-echo "<table border=1 >"; 
+echo "<table border=0 >"; 
 echo "<tr>"; 
 echo "<td><b>Id Client</b></td>"; 
 echo "<td><b>Nom Client</b></td>"; 

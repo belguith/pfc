@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mar 12 Mai 2015 à 15:55
+-- Généré le :  Mer 13 Mai 2015 à 00:31
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -60,14 +60,25 @@ CREATE TABLE IF NOT EXISTS `atelier` (
   `image_atelier` varchar(200) NOT NULL,
   `type_atelier` varchar(20) NOT NULL,
   PRIMARY KEY (`id_atelier`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `atelier`
 --
 
 INSERT INTO `atelier` (`id_atelier`, `nom_atelier`, `prix_atelier`, `nbr_max`, `nbr_inscrit`, `date_atelier`, `description_atelier`, `note_atelier`, `image_atelier`, `type_atelier`) VALUES
-(3, 'gkhik', '2000000', 20, 4444, '0000-00-00 00:00:00', 'atelier tfatta9\r\n', '15', 'jfgujuj', 'culinaireeeeeee');
+(3, 'Traite des vaches', '20', 20, 10, '2015-05-11 00:00:00', 'Les inscrits à cet atelier peuvent apprendre à traire les vaches . Le lait peut ensuite servir à faire du fromage.', '10', 'img/traire_vache.jpg', 'agricole'),
+(4, 'Atelier Confiture', '10', 5, 5, '2015-05-11 00:00:00', 'Un chef-pâtissier professionnel vous conseille à chaque étape de la confection et une fois votre recette terminée, vous repartez avec.', '5', 'img/confiture.jpg', 'agricole'),
+(5, 'Fabrication Couscous', '10', 5, 2, '2015-05-11 10:30:00', 'Cet atelier permet aux inscrits d''apprendre à confectionner le couscous Tunisien traditionnel.', '10', 'img/couscous.jpg', 'agricole'),
+(6, 'Atelier Labour', '5', 20, 10, '2015-05-11 10:30:00', 'Le labour est un travail agricole qui consiste à retourner une terre non cultivée en vue d''y déposer des semences ou des graines.', '8', 'img/labour.jpg', 'agricole'),
+(7, 'Le couscous', '5', 5, 2, '2015-05-11 10:30:00', 'Le couscous est un plat berbère à base de semoule de blé dur.Le plat de base consiste en l''association du couscous (céréale) et des pois chiches (légumineuses) mais sans viande, la légumineuse jouant ce rôle. Le couscous est servi avec de la viande et un ragoût de légumes.', '5', 'img/cous.jpg', 'culinaire'),
+(8, 'La mloukhyia', '5', 5, 2, '2015-05-11 00:00:00', 'La mloukhiya est un plat populaire du Maghreb.Il s''agit d''un ragoût de viande de bœuf ou d''agneau cuisiné dans une sauce riche à base de corète potagère ou jute rouge. Les feuilles de cette plante sont séchées et réduites en une poudre de couleur verte, facile à conserver.', '8', 'img/mloukhia.jpg', 'culinaire'),
+(9, 'Lablabi', '10', 5, 5, '2015-05-11 10:30:00', 'Le lablabi est un plat populaire en Tunisie, préparé à base de pois chiches, d’ail, de cumin ou de carvi, d’huile d’olive, de sel, de poivre et d’harissa. L''appellation vient du turc leblebi, signifiant pois chiches grillés.', '10', 'img/lablebi.jpg', 'culinaire'),
+(10, 'Le brik tunsien', '5', 10, 10, '2015-05-11 12:00:00', 'La brik est une entrée dans la gastronomie africaine du nord, préparée à partir d''une feuille de pâte très fine (malsouka) faite de farine et de semoule de blé.Sa farce peut être composée d''un oeuf , de la viande de boeuf hachée ou du poulet.', '8', 'img/brik.jpg', 'culinaire'),
+(11, 'Atelier de poterie', '15', 20, 8, '2015-05-11 00:00:00', 'Considérez cet art ancestral qu''est la céramique et entrez dans la danse des potiers ... Faites-vous confiance, appréciez ce contact avec la terre et lancez-vous ... Faites la parler, du bout des doigts ou à pleines mains ... et laissez le volume prendre forme. Modelez, façonnez, repoussez, tirez, battez, roulez, retirez, ajoutez, creusez, ajustez, sculptez, lissez .', '9', 'img/poterie.jpg', 'artisanal'),
+(12, 'Atelier de tissage', '10', 20, 10, '2015-05-11 00:00:00', 'cet atelier sera dirigé par des tisserands et femmes qui vous présenteront et feront participer aux différentes étapes de la préparation de la laine (lavage, cardage, filature, filage et rouage) et du tissage sur métiers', '6', 'img/tissage.jpg', 'artisanal'),
+(13, 'Atelier de Vannerie', '10', 20, 6, '2015-05-11 10:30:00', 'Un vannier explique aux participants comment fabriquer des vans, corbeilles et autres. Une expérience inédite où le gestuel et le visuel dominent la communication avec un artisan qui ne maîtrise outre sa langue maternelle que l’art de la vannerie.', '8', 'img/vannerie.jpg', 'artisanal'),
+(14, 'Atelier de Mechmoum', '15', 20, 6, '2015-05-11 12:00:00', 'Le Machmoum n’est autre qu’un bouquet de fleurs de jasmin, ou de fell, qui a subi plusieurs étapes de fabrication. En effet, la culture est d’abord réalisée en famille.', '5', 'img/machmoum-tunisie.jpg', 'artisanal');
 
 -- --------------------------------------------------------
 
@@ -114,14 +125,15 @@ CREATE TABLE IF NOT EXISTS `client` (
   `active` int(11) NOT NULL,
   PRIMARY KEY (`id_client`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Contenu de la table `client`
 --
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `mail_client`, `tel_client`, `cin_client`, `image_client`, `login`, `motdepasse`, `role`, `code`, `active`) VALUES
-(1, 'admin', 'admin', 'admin@aaaa', '85208520', '85208520', '', 'admin', 'admin', 1, '', 1);
+(1, 'admin', 'admin', 'admin@aaaa', '85208520', '85208520', '', 'admin', 'admin', 1, '', 1),
+(2, 'nom', 'prenom', 'mail@email.tn', '85208520', '85208520', 0x75726c, 'nomprenom', 'motdepasse', 1, '8520852085208520', 0);
 
 -- --------------------------------------------------------
 
@@ -130,21 +142,25 @@ INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `mail_client`,
 --
 
 CREATE TABLE IF NOT EXISTS `commentaire` (
-  `id_commentaire` int(11) NOT NULL,
+  `id_commentaire` int(11) NOT NULL AUTO_INCREMENT,
   `id_atelier` int(11) NOT NULL,
   `id_client` int(11) NOT NULL,
   `contenu` varchar(1000) NOT NULL,
   `date_publication` datetime NOT NULL,
   PRIMARY KEY (`id_client`,`id_atelier`,`id_commentaire`),
-  KEY `commentaire_atelier_FK` (`id_atelier`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `commentaire_atelier_FK` (`id_atelier`),
+  KEY `id_commentaire` (`id_commentaire`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `commentaire`
 --
 
 INSERT INTO `commentaire` (`id_commentaire`, `id_atelier`, `id_client`, `contenu`, `date_publication`) VALUES
-(0, 3, 1, '8520', '2015-05-12 00:00:00');
+(1, 3, 1, '8520', '2015-05-12 00:00:00'),
+(2, 4, 1, 'atelier', '2015-05-12 00:00:00'),
+(5, 3, 2, '8520', '2015-05-12 00:00:00'),
+(4, 4, 2, 'atelier', '2015-01-01 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -160,14 +176,17 @@ CREATE TABLE IF NOT EXISTS `excursion` (
   `date_fin` date NOT NULL,
   `imge_excursion` varchar(200) NOT NULL,
   PRIMARY KEY (`id_excursion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `excursion`
 --
 
 INSERT INTO `excursion` (`id_excursion`, `destination_excursion`, `lilbelle_excursion`, `date_debut`, `date_fin`, `imge_excursion`) VALUES
-(2, 'sousse', 'plage', '2015-09-05', '2015-10-20', 'url');
+(1, 'Haouaria', 'El Haouaria  est une ville tunisienne situee a l''extremite nord-est du cap Bon, a l''entree du golfe ', '2015-05-05', '2015-05-15', 'http://media-cdn.tripadvisor.com/media/photo-s/01/8a/97/41/el-haouaria.jpg'),
+(2, 'Kelibia', 'Kelibia, est une ville cotiere du Nord-Est de la Tunisie. Situee a la pointe de la peninsule du cap ', '0000-00-00', '0000-00-00', 'http://media-cdn.tripadvisor.com/media/photo-s/03/9f/22/de/mamounia-hotel.jpg'),
+(3, 'Korbous', 'Korbous Situee dans la région du cap Bon , cette petite ville borde le golfe de Tunis et se situe à ', '2015-05-26', '2015-05-30', 'http://www.cyberesa.info/cr.fwk/images/hotels/Section-255-20091216-020836.jpg'),
+(4, 'port des princes', 'Port Prince est un site magnifique du Cap Bon, avec une plage magnifique et de bons parcours de rand', '2015-05-27', '2015-05-26', 'https://farm3.staticflickr.com/2616/4086408143_517ab243d2_o.jpg');
 
 -- --------------------------------------------------------
 
@@ -184,9 +203,16 @@ CREATE TABLE IF NOT EXISTS `info_dartak` (
   `tel_jour` varchar(20) NOT NULL,
   `tel_soir` varchar(20) NOT NULL,
   `tel_hebergement` varchar(20) NOT NULL,
-  `email` varchar(20) NOT NULL,
+  `email` varchar(50) NOT NULL,
   PRIMARY KEY (`nom`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `info_dartak`
+--
+
+INSERT INTO `info_dartak` (`nom`, `adresse1`, `adresse2`, `adresse3`, `tel_rensaignement`, `tel_jour`, `tel_soir`, `tel_hebergement`, `email`) VALUES
+('dartak', 'En face du clubBen de Beni Khalled.', '2 KM avant l''entrée de la ville.', 'A coté de FirmetSalouh', '+216 71585742', '+216 71585748', '+216 71585747', '+216 71585741', 'maisondartak@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -198,6 +224,13 @@ CREATE TABLE IF NOT EXISTS `mailing_list` (
   `email` varchar(100) NOT NULL,
   PRIMARY KEY (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `mailing_list`
+--
+
+INSERT INTO `mailing_list` (`email`) VALUES
+('belguith.chachia@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -213,7 +246,17 @@ CREATE TABLE IF NOT EXISTS `mesage_client` (
   `num_tel` int(11) NOT NULL,
   `contenu` text NOT NULL,
   PRIMARY KEY (`id_message`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='num tel message' AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 COMMENT='num tel message' AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `mesage_client`
+--
+
+INSERT INTO `mesage_client` (`id_message`, `nom`, `prenom`, `email`, `num_tel`, `contenu`) VALUES
+(1, 'g', 'g', 'gg', 25432543, 'jilj'),
+(2, 'g', 'g', 'ool', 25432543, 'jilj'),
+(3, 'kmar', 'bel', 'k', 20545845, 'lou'),
+(4, 'xcbxb', 'bxcb', 'cxb', 20181830, 'bcxb');
 
 -- --------------------------------------------------------
 
@@ -248,7 +291,10 @@ CREATE TABLE IF NOT EXISTS `participation` (
 --
 
 INSERT INTO `participation` (`id_client`, `id_atelier`, `date_participation`) VALUES
-(1, 3, '2015-02-07');
+(1, 3, '2015-02-02'),
+(1, 3, '2015-02-07'),
+(1, 4, '2015-02-05'),
+(2, 4, '2015-04-04');
 
 -- --------------------------------------------------------
 
@@ -271,9 +317,7 @@ CREATE TABLE IF NOT EXISTS `reservation` (
 --
 
 INSERT INTO `reservation` (`id_client`, `id_chambre`, `date_reservation`, `date_arrive`, `date_depart`) VALUES
-(1, 1, '2015-01-28', '2015-01-28', '2015-01-28'),
-(1, 1, '2015-05-12', '2015-05-28', '2015-05-31'),
-(1, 2, '2015-05-12', '2015-05-13', '2015-05-14');
+(2, 2, '2005-01-01', '2005-01-02', '2005-01-07');
 
 -- --------------------------------------------------------
 
@@ -286,7 +330,7 @@ CREATE TABLE IF NOT EXISTS `site_map` (
   `table_name` varchar(20) NOT NULL,
   `page_link` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Contenu de la table `site_map`
@@ -301,7 +345,10 @@ INSERT INTO `site_map` (`id`, `table_name`, `page_link`) VALUES
 (8, 'excursion', 'excursion/list.php'),
 (9, 'notation', 'notation.php'),
 (10, 'participation', 'particiapation/list.php'),
-(11, 'reservation', 'reservation/list.php');
+(11, 'reservation', 'reservation/list.php'),
+(12, 'mailing_list', 'mailing_list/list.php'),
+(13, 'info_dartak', 'info_dartak/list.php'),
+(14, 'message_client', 'message_client/list.php');
 
 --
 -- Contraintes pour les tables exportées

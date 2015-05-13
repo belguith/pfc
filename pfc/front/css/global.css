@@ -76,7 +76,7 @@ header h1
 	position: absolute;
 float: left;
 display: inline-block;
-top: 50px;
+top: 60px;
 left: 50px;
 
 height: 90px;
@@ -89,7 +89,7 @@ margin: 10px;
 {
 
 float: left;
-margin-top : 5px;
+margin-top : 15px;
 bottom:2px;
 margin-left: 1%;
 vertical-align : middle;
@@ -118,6 +118,7 @@ nav
 	
     display: inline-block;
     width: 70%;
+    margin-left: 80px;
     text-align: justify;
 	position : absolute;
 	vertical-align : middle;
@@ -245,7 +246,10 @@ opacity : 1;
 
 
 /* Container */
+#container{
 
+  height: auto;
+}
 /*modif*/
 #container h2
 {
@@ -912,11 +916,14 @@ position : relative;
 float : left;
 margin-top :2%;
 margin-left : 5%;
+display: inline-block;
 	
 
 }
 .commentaire_form a{
-color: #3abc00;
+color: #3A4C8C;
+margin-left: 30px !important;
+margin-bottom: 30px !important;
 font-size: 1.2em;
 padding-bottom: 3px;
 text-decoration: none;
@@ -934,25 +941,34 @@ transform :scale(1.2);
 .commentaire_form ul {
     padding: 0;
     margin: 0;
+    display: inline-block;
 	
 }
 
 
 .commentaire_form li {
-    display: inline;
+    display: inline-block;
     position: relative;
+}
+
+.like_btn
+{
+  display: inline-block;
+  margin-left:  300px;
 }
 
 .commentaire_form ul ul {
     position: absolute;
 	top : 20px;
-	right :  -200px;
-	border : 1px solid;
+	right :  -400px;
+	
 	border-radius : 10px;
-	width : 350px;
-	height : 150px;
+	width : 500px;
+	min-height : 200px;
+  height: auto;
     display: none;
 	background-color: rgba(69, 22, 2, 0.6);
+  z-index : 1;
 }
 .commentaire_form li:hover ul {
     display: block;
@@ -1360,3 +1376,33 @@ transition : transform 0.5s ease;
 }
 
 
+
+.connexion_lien {
+  
+border: 3px solid #FFF !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  background: transparent !important;
+  color: #FFF !important;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 1em !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-align: center;
+  cursor: pointer !important;
+  display: inline-block !important;
+  width : 150px !important;
+  max-width : 300px;
+  min-height : 20px;
+  margin: 2px 2px 2px 2px !important;
+  margin-right: -50px !important;
+  border-radius: 2px !important;
+  -webkit-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+  transition: all 0.3s !important;
+  }
+  
+.connexion_lien:hover{
+background : rgba(128,128,128,0.5) !important;
+
+}

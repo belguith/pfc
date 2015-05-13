@@ -114,7 +114,7 @@ Des cours de cuisine pour satisfaire vos papilles avec de nombreuses et goûteus
 Consultez notre programme et contactez-nous.  </p>
 			 </div>
 			<div id="bloc_boxes">
-			<div class="box">  <!-- CECI EST UN SEUL BOX  -->
+			 <div class="box">  <!-- CECI EST UN SEUL BOX  -->
 			<img src="img/cous.jpg" alt="img box"></img>
 			<div class="box_desc">
 			<h3>Le couscous</h3>
@@ -127,10 +127,16 @@ Consultez notre programme et contactez-nous.  </p>
 				<a href="">Commentaire</a>
 				<!-- Begin show form on hover  -->
 				<ul>
-					<form name="comentaire" method="POST">
-						<li> <input type="text" placeholder="Votre Commentaire" name="comentaire_contenue" class="commentaire_input"></li>
-						
-						<li><input type="submit"  name="valider_commentaire" value="Commenter" class="popup-button"></li>
+					<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v2.3";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="fb-root"></div>
+<div class="fb-comments" data-href="http://localhost/pfc/front/art_culinaire.php" data-numposts="3" data-colorscheme="dark"></div>
+
 						
 
 					</form>

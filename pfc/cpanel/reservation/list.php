@@ -3,16 +3,16 @@
 		<link rel="stylesheet" type="text/css" href="../css/view_style.css">
 	</head>
 <?php 
-
-include_once('../data_base_connexion.php');  
-echo "<table border=1 >"; 
+include_once('../data_base_connexion.php'); 
+echo "<table border=0 >"; 
 echo "<tr>"; 
 echo "<td><b>Id Client</b></td>"; 
 echo "<td><b>Id Chambre</b></td>"; 
 echo "<td><b>Date Reservation</b></td>"; 
 echo "<td><b>Date Arrive</b></td>"; 
 echo "<td><b>Date Depart</b></td>"; 
-echo "</tr>"; 
+echo "</tr>";
+ 
 $result = mysql_query("SELECT * FROM `reservation`") or trigger_error(mysql_error()); 
 while($row = mysql_fetch_array($result)){ 
 foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
@@ -22,10 +22,15 @@ echo "<td valign='top'>" . nl2br( $row['id_chambre']) . "</td>";
 echo "<td valign='top'>" . nl2br( $row['date_reservation']) . "</td>";  
 echo "<td valign='top'>" . nl2br( $row['date_arrive']) . "</td>";  
 echo "<td valign='top'>" . nl2br( $row['date_depart']) . "</td>";  
-echo "<td valign='top'><a href=edit.php?id_client={$row['id_client']}&id_chambre={$row['id_chambre']}&date_reservation={$row['date_reservation']} >Edit</a></td>
-<td><a href=delete.php?id_client={$row['id_client']}&id_chambre={$row['id_chambre']}&date_reservation='{$row['date_reservation']}'>Delete</a></td> "; 
+echo "<td valign='top'>
+			<a href=edit.php?id_client={$row['id_client']}&id_chambre={$row['id_chambre']}&date_reservation={$row['date_reservation']} class='popup-button' >Edit</a>
+	  </td>
+	  <td>
+	  		<a href=delete.php?id_client={$row['id_client']}&id_chambre={$row['id_chambre']}&date_reservation={$row['date_reservation']} class='popup-button' >Delete</a>
+	  </td> ";
+
 echo "</tr>"; 
 } 
 echo "</table>"; 
-echo "<a href=new.php>New Row</a>"; 
+echo "<a href=new.php class='popup-button'>New Row</a>"; 
 ?>
