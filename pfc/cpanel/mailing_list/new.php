@@ -16,6 +16,6 @@ echo "<a href='list.php'>Back To Listing</a>";
 ?>
 
 <form action='' method='POST'>
-<p><b>Email:</b><br /><input type='text' name='email'/>  
+<p><b>Email:</b><br /><input type=email name='email' required placeholder="exemple@domaine.com"/>  
 <p><input type='submit' value='Add Row' /><input type='hidden' value='1' name='submitted' /> 
 </form> 

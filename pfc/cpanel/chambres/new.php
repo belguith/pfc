@@ -16,11 +16,11 @@ echo "<a href='list.php' class='popup-button'>Back To Listing</a>";
 
 <form action='' method='POST'> 
  
-<p><b>Nom Chambre:</b><br /><input type='text' name='nom_chambre'/> 
-<p><b>Type Chambre:</b><br /><input type='text' name='type_chambre'/> 
-<p><b>Image1 Chambre:</b><br /><input type='text' name='image1_chambre'/> 
-<p><b>Image2 Chambre:</b><br /><input type='text' name='image2_chambre'/> 
-<p><b>Image3 Chambre:</b><br /><input type='text' name='image3_chambre'/> 
+<p><b>Nom Chambre:</b><br /><input type='text' name='nom_chambre'required placeholder="Nom Chambre"   maxlength="100"/> 
+<p><b>Type Chambre:</b><br /><input type='text' name='type_chambre' required placeholder="Type Chambre" pattern="[1-2]{1}" maxlength="1"/> 
+<p><b>Image1 Chambre:</b><br /><input type='text' name='image1_chambre'  required placeholder="URL de l'image"   maxlength="1000" /> 
+<p><b>Image2 Chambre:</b><br /><input type='text' name='image2_chambre'  required placeholder="URL de l'image"   maxlength="1000" /> 
+<p><b>Image3 Chambre:</b><br /><input type='text' name='image3_chambre'  required placeholder="URL de l'image"   maxlength="1000" /> 
 <p><input type='submit' class='popup-button' value='Add Row' /><input type='hidden' value='1' name='submitted' /> 
 </form> 
 

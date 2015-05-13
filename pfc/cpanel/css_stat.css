@@ -1,0 +1,45 @@
+body{
+
+margin : 0;
+background: #BD8D46;
+
+}
+
+.titre_stat
+{
+font-family:arial;
+font-size:18px;
+color:#F5DEB3;
+margin:20px;
+display : inline-block;
+font-weight:bold;
+
+
+}
+
+.titre_date
+{
+font-family:arial;
+font-size:16px;
+color:#380202;
+margin:20px;
+
+}
+
+select
+{
+color:#380202;
+font-family:arial;
+font-size:16px;
+margin:20px;
+width:100px;
+height:35px;
+}
+
+input[type="submit"]
+{
+margin-left:20px;
+width:100px;
+height:30px;
+color:#380202;
+}

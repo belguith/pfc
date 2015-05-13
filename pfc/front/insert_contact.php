@@ -15,21 +15,7 @@ $request="INSERT INTO mesage_client(nom,prenom,email,num_tel,contenu) values('".
 			
 			
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+HEADER('location:contact.php');
 
 
 

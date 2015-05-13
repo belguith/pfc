@@ -4,7 +4,7 @@
 
 <html>
     <head>
-        <meta charset="utf-8" />
+        		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
@@ -63,17 +63,17 @@
                 <nav>
 				
                      <ul>
-                        <li><a href="acceuil.html">Accueil</a> </li>
+                        <li><a href="acceuil.php">Accueil</a> </li>
 						<li> | </li>
-						<li><a href="activites.html">Activitées</a></li>
+						<li><a href="activites.php">Activitées</a></li>
 						<li> | </li>
                         <li><a href="ateliers_principal.html">Ateliers</a></li>
 						<li> | </li>
-						<li><a href="reservation.html">Tarifs & Réservation</a></li>
+						<li><a href="reservation.php">Tarifs & Réservation</a></li>
 						<li> | </li>
-						<li><a href="#">Gallerie</a></li>
+						<li><a href="galerie.php">Gallerie</a></li>
 						<li> | </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.php">Contact</a></li>
 						
 						
 						

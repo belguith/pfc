@@ -18,18 +18,18 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `client` WHERE `id_client`
 ?>
 
 <form action='' method='POST'> 
-<p><b>Id Client:</b><br /><input type='text' name='id_client' value='<?= stripslashes($row['id_client']) ?>' /> 
-<p><b>Nom Client:</b><br /><input type='text' name='nom_client' value='<?= stripslashes($row['nom_client']) ?>' /> 
-<p><b>Prenom Client:</b><br /><input type='text' name='prenom_client' value='<?= stripslashes($row['prenom_client']) ?>' /> 
-<p><b>Mail Client:</b><br /><input type='text' name='mail_client' value='<?= stripslashes($row['mail_client']) ?>' /> 
-<p><b>Tel Client:</b><br /><input type='text' name='tel_client' value='<?= stripslashes($row['tel_client']) ?>' /> 
-<p><b>Cin Client:</b><br /><input type='text' name='cin_client' value='<?= stripslashes($row['cin_client']) ?>' /> 
-<p><b>Image Client:</b><br /><textarea name='image_client'><?= stripslashes($row['image_client']) ?></textarea> 
-<p><b>Login:</b><br /><input type='text' name='login' value='<?= stripslashes($row['login']) ?>' /> 
-<p><b>Motdepasse:</b><br /><input type='text' name='motdepasse' value='<?= stripslashes($row['motdepasse']) ?>' /> 
-<p><b>Role:</b><br /><input type='text' name='role' value='<?= stripslashes($row['role']) ?>' /> 
+<p><b>Id Client:</b><br /><input type='text' name='id_client'required value='<?= stripslashes($row['id_client']) ?>' /> 
+<p><b>Nom Client:</b><br /><input type='text' name='nom_client' required placeholder=" Nom client"   maxlength="100" value='<?= stripslashes($row['nom_client']) ?>' /> 
+<p><b>Prenom Client:</b><br /><input type='text' name='prenom_client' required placeholder=" Prenom client"   maxlength="100" value='<?= stripslashes($row['prenom_client']) ?>' /> 
+<p><b>Mail Client:</b><br /><input type=email placeholder="exemple@domaine.com" required name='mail_client' value='<?= stripslashes($row['mail_client']) ?>' /> 
+<p><b>Tel Client:</b><br /><input type=tel required placeholder="tel" name='tel_client' value='<?= stripslashes($row['tel_client']) ?>' /> 
+<p><b>Cin Client:</b><br /><input type='text' name='cin_client' required placeholder="CIN"  pattern="[0-9]{8}" maxlength="8" value='<?= stripslashes($row['cin_client']) ?>' /> 
+<p><b>Image Client:</b><br /><textarea name='image_client' required placeholder="URL de l'image"   maxlength="1000"><?= stripslashes($row['image_client']) ?></textarea> 
+<p><b>Login:</b><br /><input type='text' name='login' required placeholder="Login"   maxlength="50" value='<?= stripslashes($row['login']) ?>' /> 
+<p><b>Motdepasse:</b><br /><input type='text' name='motdepasse'  required placeholder="mot de passe"   maxlength="1000" value='<?= stripslashes($row['motdepasse']) ?>' /> 
+<p><b>Role:</b><br /><input type='text' name='role' required placeholder="role"  pattern="[0-9]{1}" maxlength="1" value='<?= stripslashes($row['role']) ?>' /> 
 <p><b>Code:</b><br /><input type='text' name='code' value='<?= stripslashes($row['code']) ?>' /> 
-<p><b>Active:</b><br /><input type='text' name='active' value='<?= stripslashes($row['active']) ?>' /> 
-<p><input type='submit' class='popup-button' value='Edit Row' /><input type='hidden' value='1' name='submitted' /> 
+<p><b>Active:</b><br /><input type='text' name='active' name='code' required placeholder=" code"   maxlength="10" value='<?= stripslashes($row['active']) ?>' /> 
+<p><input type='submit' class='popup-button' required value='Edit Row' /><input type='hidden' value='1' name='submitted' /> 
 </form>
 <?php } ?> 

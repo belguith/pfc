@@ -15,9 +15,9 @@ echo "<a href='list.php' class='popup-button'>Back To Listing</a>";
 ?>
 
 <form action='' method='POST'> 
-<p><b>Id Atelier:</b><br /><input type='text' name='id_atelier'/> 
-<p><b>Id Client:</b><br /><input type='text' name='id_client'/> 
-<p><b>Contenu:</b><br /><input type='text' name='contenu'/> 
-<p><b>Date Publication:</b><br /><input type='text' name='date_publication'/> 
+<p><b>Id Atelier:</b><br /><input type='text' name='id_atelier'required placeholder="ID atelier"  pattern="[0-9]{8}" maxlength="8"/> 
+<p><b>Id Client:</b><br /><input type='text' name='id_client' required placeholder="ID client"  pattern="[0-9]{8}" maxlength="8"/> 
+<p><b>Contenu:</b><br /><input type='text' name='contenu' required placeholder="contenu"   maxlength="50"/> 
+<p><b>Date Publication:</b><br /><input type='date' name='date_publication'/> 
 <p><input type='submit' value='Add Row' class='popup-button' /><input type='hidden' value='1' name='submitted' /> 
 </form> 

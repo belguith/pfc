@@ -3,16 +3,8 @@
 
 include_once('data_base_connexion.php');
 
-
 $login=$_POST['login'];
 $password=$_POST['password'];
-
-
-session_start();
-$_SESSION['login']=$login;
-$_SESSION['password']=$password;
-
-
 
 
 // Recuperation de tous les password present dans la BDD
@@ -27,15 +19,25 @@ if(isset($_POST))
 while($row=mysql_fetch_array($result))
 {
 	
-if ($row['login']==$_SESSION['login'])
+if ($row['login']==$login)
   {
-	if ($row['motdepasse']==$_SESSION['password'])
+	if ($row['motdepasse']==$password)
     {
-	
-	HEADER('location:acceuil.html');
+      session_start();
+      $_SESSION['login']=$login;
+      //$_SESSION['password']=$password;
+
+      $isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
+
+      print_r($_SESSION);
+	   
+	HEADER('location:acceuil.php');
     }	
 	else {echo "erreur";}
-  }	
+  }
+  
+  	
+ 
   
 }
 

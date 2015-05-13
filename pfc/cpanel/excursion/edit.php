@@ -21,8 +21,8 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `excursion` WHERE `id_excu
 <form action='' method='POST'> 
 <p><b>Destination Excursion:</b><br /><input type='text' name='destination_excursion' value='<?= stripslashes($row['destination_excursion']) ?>' /> 
 <p><b>Lilbelle Excursion:</b><br /><input type='text' name='lilbelle_excursion' value='<?= stripslashes($row['lilbelle_excursion']) ?>' /> 
-<p><b>Date Debut:</b><br /><input type='text' name='date_debut' value='<?= stripslashes($row['date_debut']) ?>' /> 
-<p><b>Date Fin:</b><br /><input type='text' name='date_fin' value='<?= stripslashes($row['date_fin']) ?>' /> 
+<p><b>Date Debut:</b><br /><input type='date' name='date_debut' value='<?= stripslashes($row['date_debut']) ?>' /> 
+<p><b>Date Fin:</b><br /><input type='date' name='date_fin' value='<?= stripslashes($row['date_fin']) ?>' /> 
 <p><b>Imge Excursion:</b><br /><input type='text' name='imge_excursion' value='<?= stripslashes($row['imge_excursion']) ?>' /> 
 <p><input type='submit' class='popup-button' value='Edit Row' /><input type='hidden' value='1' name='submitted' /> 
 </form> 

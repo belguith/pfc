@@ -17,10 +17,10 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `article` WHERE `id_articl
 ?>
 
 <form action='' method='POST'> 
-<p><b>Lilbelle Article:</b><br /><input type='text' name='lilbelle_article' value='<?= stripslashes($row['lilbelle_article']) ?>' /> 
-<p><b>Description Article:</b><br /><textarea name='description_article'><?= stripslashes($row['description_article']) ?></textarea> 
-<p><b>Image Article:</b><br /><input type='text' name='image_article' value='<?= stripslashes($row['image_article']) ?>' /> 
-<p><b>Date Article:</b><br /><input type='text' name='date_article' value='<?= stripslashes($row['date_article']) ?>' /> 
+<p><b>Lilbelle Article:</b><br /><input type='text' name='lilbelle_article' required placeholder="Libelle article" maxlength="400" value='<?= stripslashes($row['lilbelle_article']) ?>' /> 
+<p><b>Description Article:</b><br /><textarea name='description_article' required placeholder="Description de l'article" maxlength="400"><?= stripslashes($row['description_article']) ?></textarea> 
+<p><b>Image Article:</b><br /><input type='text' name='image_article' required placeholder="URL de l'image"   maxlength="1000" value='<?= stripslashes($row['image_article']) ?>' /> 
+<p><b>Date Article:</b><br /><input type='date' name='date_article' value='<?= stripslashes($row['date_article']) ?>' /> 
 <p><input type='submit' class="popup-button" value='Edit Row' /><input type='hidden' value='1' name='submitted' /> 
 </form> 
 <?php } 

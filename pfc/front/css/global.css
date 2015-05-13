@@ -310,9 +310,8 @@ margin-left: 35%;
 margin-right: auto;
 float : center;
 width: 200px;
-background-color : rgba(128, 128, 128, 0.5);
+background-color : rgba(20, 20, 20, 0.1);
 border-radius : 10px;
-box-shadow : 1px 1px 1px black;
 }
 
 .description
@@ -1404,5 +1403,35 @@ border: 3px solid #FFF !important;
   
 .connexion_lien:hover{
 background : rgba(128,128,128,0.5) !important;
+
+}
+
+
+.captcha{
+  
+  display: inline-block;
+}
+
+
+#captcha_bloc{
+  text-align: center;
+  display: inline-block !important;
+  position: relative;
+}
+
+#captcha form{
+  text-align: center;
+  display: inline-block !important;
+}
+
+#captcha  {
+  text-align: center;
+  display: inline-block !important;
+  width: 100px !important;
+}
+
+
+.sub{
+background-color:#b79969!important;
 
 }

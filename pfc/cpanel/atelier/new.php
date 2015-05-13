@@ -15,14 +15,14 @@ echo "<a href='list.php' class='popup-button' >Back To Listing</a>";
 ?>
 
 <form action='' method='POST'> 
-<p><b>Nom Atelier:</b><br /><input type='text' name='nom_atelier'/> 
-<p><b>Prix Atelier:</b><br /><input type='text' name='prix_atelier'/> 
-<p><b>Nbr Max:</b><br /><input type='text' name='nbr_max'/> 
-<p><b>Nbr Inscrit:</b><br /><input type='text' name='nbr_inscrit'/> 
-<p><b>Date Atelier:</b><br /><input type='text' name='date_atelier'/> 
-<p><b>Description Atelier:</b><br /><textarea name='description_atelier'></textarea> 
-<p><b>Note Atelier:</b><br /><input type='text' name='note_atelier'/> 
-<p><b>Image Atelier:</b><br /><input type='text' name='image_atelier'/> 
-<p><b>Type Atelier:</b><br /><input type='text' name='type_atelier'/> 
+<p><b>Nom Atelier:</b><br /><input type='text' name='nom_atelier'required placeholder="Nom atelier"   maxlength="100"/> 
+<p><b>Prix Atelier:</b><br /><input type='text' name='prix_atelier' required placeholder="Prix atelier" pattern="[0-9]{2}" maxlength="8"/> 
+<p><b>Nbr Max:</b><br /><input type='text' name='nbr_max'  required placeholder="Nombre max"  pattern="[0-9]{2}" maxlength="8"/> 
+<p><b>Nbr Inscrit:</b><br /><input type='text' name='nbr_inscrit' required placeholder="Nombre inscrit"  pattern="[0-9]{2}" maxlength="2"/> 
+<p><b>Date Atelier:</b><br /><input type='date' name='date_atelier'/> 
+<p><b>Description Atelier:</b><br /><textarea name='description_atelier' required placeholder="Description Atelier"   maxlength="1000"></textarea> 
+<p><b>Note Atelier:</b><br /><input type='text' name='note_atelier' required placeholder="Note atelier" pattern="[0-9]{2}" maxlength="2"/> 
+<p><b>Image Atelier:</b><br /><input type='text' name='image_atelier' required placeholder="URL de l'image"   maxlength="1000"/> 
+<p><b>Type Atelier:</b><br /><input type='text' name='type_atelier' required placeholder="Type atelier"   maxlength="500"/> 
 <p><input type='submit' value='Add Row' class='popup-button'/><input type='hidden' value='1' name='submitted' /> 
 </form> 

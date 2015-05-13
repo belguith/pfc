@@ -14,9 +14,9 @@ echo "<a href='list.php' class='popup-button' >Back To Listing</a>";
 ?>
 
 <form action='' method='POST'> 
-<p><b>Lilbelle Article:</b><br /><input type='text' name='lilbelle_article'/> 
-<p><b>Description Article:</b><br /><textarea name='description_article'></textarea> 
-<p><b>Image Article:</b><br /><input type='text' name='image_article'/> 
-<p><b>Date Article:</b><br /><input type='text' name='date_article'/> 
+<p><b>Lilbelle Article:</b><br /><input type='text' name='lilbelle_article' required placeholder="Libelle article" maxlength="400" /> 
+<p><b>Description Article:</b><br /><textarea name='description_article' required placeholder="Description de l'article" maxlength="400"></textarea> 
+<p><b>Image Article:</b><br /><input type='text' name='image_article'required placeholder="URL de l'image" maxlength="400"/> 
+<p><b>Date Article:</b><br /><input type='date' name='date_article'/> 
 <p><input type='submit' class="popup-button" value='Add Row' /><input type='hidden' value='1' name='submitted' /> 
 </form> 

@@ -1,9 +1,66 @@
+<?php
+error_reporting(E_ALL ^ E_DEPRECATED);
+
+include_once ('../cpanel/record_stat.php'); 
+include_once('data_base_connexion.php');
+session_start();
+
+$stat=0;
+
+if(isset($_SESSION['login'])){
+  $stat=1;
+}
+
+
+
+
+				
+if(isset($_POST['login']))
+{
+ $login=$_POST['login'];
+$password=$_POST['password'];
+$request = "SELECT * FROM client WHERE (login ='".$login."' AND motdepasse = '".$password."' )";
+               $result = mysql_query($request) or die("Pb avec la requete: $request");
+                
+
+while($row=mysql_fetch_array($result))
+{
+	
+if ($row['login']==$login)
+  {
+	if ($row['motdepasse']==$password)
+    {
+      session_start();
+      $_SESSION['login']=$login;
+      //$_SESSION['password']=$password;
+      
+      $isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
+
+      $stat=1;
+	   
+	//HEADER('location:acceuil.php');
+    }	
+	else {
+			$stat=-1;
+			echo "erreur";
+		}
+  }
+  
+  	
+ 
+  
+}
+
+  }
+
+?>
+
 <html>
     <head>
-        <meta charset="utf-8" />
+        		
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
-		<meta charset="UTF-8" />
+		
 		 <link rel="stylesheet" href="css/popup_inscription.css" />
 		 
 		 
@@ -19,12 +76,28 @@
 		<script src='js/jquery.min.js'></script>
 		<script src='js/imageslidermaker.js'></script>
 		
-		
-		
+<!-- End Slider Principal  -->		
+<script type="text/javascript">
+    window.onload = function() {
+    var stat=<?php echo $stat ;?>;
+    if(stat==1){
+    var x=document.getElementById("connexion_li").style.display="none";
+    var y=document.getElementById("deconnexion_li").style.display="block";
+    }
+    else if(stat==0){
+      var x=document.getElementById("connexion_li").style.display="block";
+      var y=document.getElementById("deconnexion_li").style.display="none";
+    }
+    else{
+      var x=document.getElementById("connexion_li").style.display="block";
+      var y=document.getElementById("deconnexion_li").style.display="none";
+      alert('Identifiant ou mot de passe incorrecte !');
+    }
+    }
+    </script>		
 		
 
 
-		
 <script>
    $(function() {
 
@@ -48,6 +121,7 @@
  </head>
     <body>
 	
+
         <div id="bloc_page">
 		<!-- Begin Slider Principal  -->
 		  <div>
@@ -69,7 +143,7 @@
 </div>
 
             </div>
-			<!-- End Slider Principal  -->
+			
 			
 		
             <header>
@@ -89,14 +163,31 @@
 				    <input type="tel" placeholder="Numèro de téléphone" name="num_tel" required pattern=".{8,}" maxlength="15"/>
 					<input type="text" placeholder="Pseudo" name="pseudo" required pattern=".{6,}" />
 					<input type="password" placeholder="Mot de passe" name="motdepasse" equired pattern=".{6,}"/>
+					<div id="captcha_bloc">
+						<form action="verification_captcha.php" method="post">
+							
+							<label for="captcha">Recopiez le mot : </br><img src="captcha.php" alt="Captcha" /></label> 
+							<input type="text" name="captcha" id="captcha" />
+							<button  name="captcha_btn" class="popup-button">Valider</button>
+							
+						</form>
+
+					 </div>
+
+					<input name="submit" type="submit"  class="sub" value="" />
+
 					
-					<input name="submit" type="submit" class="popup-button" value="je m'inscris" />
 					<?php
-					if(isset($_POST['submit']))
+					if(isset($_POST['captcha_btn']))
 					{
+						if(isset($_POST['submit']))
+						{
+
 						echo "<p> Your Acount Have been made </p>";
 					
+						}
 					}
+					
 					?>
 					
 					</form>
@@ -114,17 +205,17 @@
                 <nav>
 				
                     <ul>
-                        <li><a href="acceuil.html">Accueil</a> </li>
+                        <li><a href="acceuil.php">Accueil</a> </li>
 						<li> | </li>
-						<li><a href="activites.html">Activitées</a></li>
+						<li><a href="activites.php">Activitées</a></li>
 						<li> | </li>
                         <li><a href="ateliers_principal.html">Ateliers</a></li>
 						<li> | </li>
-						<li><a href="reservation.html">Tarifs & Réservation</a></li>
+						<li><a href="reservation.php">Tarifs & Réservation</a></li>
 						<li> | </li>
-						<li><a href="#">Gallerie</a></li>
+						<li><a href="galerie.php">Gallerie</a></li>
 						<li> | </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.php">Contact</a></li>
 						
 						
 						
@@ -134,11 +225,12 @@
 				
 				<div id="login_form">
 				<ul>
-				<li>
+				<li id="connexion_li">
+
 				<a href="" class="connexion_lien">Connexion</a>
 				<!-- Begin show form on hover  -->
 				<ul>
-					<form name="Connexion" method="POST" action="user_connect.php" >
+					<form name="Connexion" method="POST" action="" >
 						<li> <input type="text" placeholder="Login" name="login"></li>
 						<li><input type="password" placeholder="Password" name="password"></li>
 						<li><input type="submit"  name="connexion_btn" value="connexion" class="popup-button"></li>
@@ -150,6 +242,20 @@
 				</ul>
 				<!-- end show form on hover  -->
 				
+				</li>
+
+				<li id="deconnexion_li">
+					<a href="" class="connexion_lien"> Deconnexion </a>
+				<ul>
+					<form name="deconnexion" method="POST" action="user_disconnect.php" >
+						<li> <?php echo $_SESSION['login'];  ?></li>
+						<li><input type="submit"  name="deconnexion_btn" value="Deconnexion" class="popup-button"></li>
+						 
+					</form>
+				 		
+				</ul>
+				<!-- end show form on hover  -->
+
 				</li>
 				
 				</ul>
@@ -177,26 +283,40 @@
 			</div>
 			
 			<!-- Begin of flider testimonial  -->
+
+
 			<div id="aboutus">
-			<div id="premier_article">
-			<img src="img/american-hachiko-agritourism-5.jpg" alt="image art">
-			<div id="description_premier_aricle" >
-			<h3> Article 1</h3>
-			description premier article description premier article description premier article description premier article description premier article aaaaaaaaaaaaaaaaaaaa
+
+					<?php
+			$i=0;
+			$sql = "SELECT * FROM article ORDER BY date_article DESC";
+			 $resultart = mysql_query($sql) or die("Pb avec la requete: $request");
+			 $rowart=mysql_fetch_array($resultart);
+			 
+			 echo 	"<div id='premier_article'>";
+			echo 	"<img src='".$rowart{'image_article'}."' alt='image art'>";
+			echo "<div id='description_premier_aricle' >";
+			echo "<h3> '".$rowart{'lilbelle_article'}."'</h3>";
+			echo "<p> ".$rowart{'description_article'}." </p>";
+			echo "<a href='#' class='#''>voir plus</a>";
+			echo "</div></div>";
+
+			 
+
+			?>
+
+			
+			
+			<div id="deuxiem_article">
+			<img src="img/american-hachiko-agritourism-5.jpg" alt="img"></img>
+			<div id="description_article_secondaire"> Labourons la Terre
 			<a href="#" class="lien_article">voir plus</a>
 			</div>
 			</div>
 			
 			<div id="deuxiem_article">
 			<img src="img/american-hachiko-agritourism-5.jpg" alt="img"></img>
-			<div id="description_article_secondaire"> bonjour les zouzous
-			<a href="#" class="lien_article">voir plus</a>
-			</div>
-			</div>
-			
-			<div id="deuxiem_article">
-			<img src="img/american-hachiko-agritourism-5.jpg" alt="img"></img>
-			<div id="description_article_secondaire"> bonjour les zouzous
+			<div id="description_article_secondaire"> Prenant Soin de Notre Environnement
 			<a href="#" class="lien_article">voir plus</a>
 			</div>
 			
@@ -229,7 +349,7 @@
 				</div>
 				<div class="bloc_rect">
 				<img src="img/cous.jpg" alt="Cuisine">
-				<div class="bloc_rect_description">Notre Cuisine<a href=#" class="lien_article" >Voir plus</a> </div>
+				<div class="bloc_rect_description">Notre Cuisine<a href="#" class="lien_article" >Voir plus</a> </div>
 				</div>
 				
 				</div>
@@ -306,5 +426,72 @@
 <script src="js/cssParser.js"></script>
 
 		<script src="js/css-filters-polyfill.js"></script>
+
+
+		
+
+
+
+
+
+
+
+<!-- affichage du lecteur -->
+<audio preload="auto" autobuffer controls id="audio" autoplay> 
+<source src="Ritek_ma_naaref_ouin.mp3" type="audio/mp3" />
+<source src="Ritek_ma_naaref_ouin.ogg" type="audio/ogg" />
+<source src="Ritek_ma_naaref_ouin.wav" type="audio/wav" />
+
+</audio>	
+
+
+
+
+<script>
+
+var audio = document.getElementById('audio');
+ $('.audiocontrols a.play').on('click',function(e){ 
+  e.preventDefault(); audio.play(); 
+ });
+ $('.audiocontrols a.pause').on('click',function(e){ 
+  e.preventDefault(); 
+  audio.pause(); 
+ });
+ $('.audiocontrols a.stop').on('click',function(e){
+  e.preventDefault(); 
+  audio.pause(); 
+  audio.currentTime=0;
+ });
+
+</script>
+
+
+<style> 
+#audio{position: absolute;
+		top: 620px;
+		right: 0px;}
+.audiocontrols > .volume {width:100%; position:relative; height:14px} 
+.audiocontrols > .volume > .slider{position:relative;border-radius:5px;background:#dedede; width:100px;height:10px;display:inline-block}
+.audiocontrols > .volume > .slider > .knob{position:absolute;top:0;left:0;background:#999;border-radius:10px; width:10px; height:10px;cursor:pointer}
+</style>
+<div class="audiocontrols">
+        <a href="#" class="play"><i class="icon-play"></i></a>
+        <a href="#" class="pause"><i class="icon-pause"></i></a>
+        <a href="#" class="stop"><i class="icon-stop"></i></a>
+        <div class="volume">
+            <a href="#" class="down"><i class="icon-volume-down"></i></a>
+            <div class="slider"><span class="knob"></span></div>
+            <a href="#" class="up"><i class="icon-volume-up"></i></a>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
     </body>
 </html>

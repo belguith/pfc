@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Mer 13 Mai 2015 à 00:31
+-- Généré le :  Mer 13 Mai 2015 à 12:52
 -- Version du serveur :  5.6.17
 -- Version de PHP :  5.5.12
 
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `atelier` (
   `nbr_max` int(11) NOT NULL,
   `nbr_inscrit` int(11) NOT NULL,
   `date_atelier` datetime NOT NULL,
-  `description_atelier` text NOT NULL,
+  `description_atelier` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `note_atelier` decimal(10,0) NOT NULL,
   `image_atelier` varchar(200) NOT NULL,
   `type_atelier` varchar(20) NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `client` (
   `active` int(11) NOT NULL,
   PRIMARY KEY (`id_client`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `client`
@@ -133,7 +133,8 @@ CREATE TABLE IF NOT EXISTS `client` (
 
 INSERT INTO `client` (`id_client`, `nom_client`, `prenom_client`, `mail_client`, `tel_client`, `cin_client`, `image_client`, `login`, `motdepasse`, `role`, `code`, `active`) VALUES
 (1, 'admin', 'admin', 'admin@aaaa', '85208520', '85208520', '', 'admin', 'admin', 1, '', 1),
-(2, 'nom', 'prenom', 'mail@email.tn', '85208520', '85208520', 0x75726c, 'nomprenom', 'motdepasse', 1, '8520852085208520', 0);
+(2, 'nom', 'prenom', 'mail@email.tn', '85208520', '85208520', 0x75726c, 'nomprenom', 'motdepasse', 1, '8520852085208520', 0),
+(11, 'belguith', 'belllll', 'belguith.chachia@gmail.com', '85205205', '85208520', '', 'bbbbbbbbbb', 'bbbbbbbbbb', 2, '', 0);
 
 -- --------------------------------------------------------
 
@@ -187,6 +188,18 @@ INSERT INTO `excursion` (`id_excursion`, `destination_excursion`, `lilbelle_excu
 (2, 'Kelibia', 'Kelibia, est une ville cotiere du Nord-Est de la Tunisie. Situee a la pointe de la peninsule du cap ', '0000-00-00', '0000-00-00', 'http://media-cdn.tripadvisor.com/media/photo-s/03/9f/22/de/mamounia-hotel.jpg'),
 (3, 'Korbous', 'Korbous Situee dans la région du cap Bon , cette petite ville borde le golfe de Tunis et se situe à ', '2015-05-26', '2015-05-30', 'http://www.cyberesa.info/cr.fwk/images/hotels/Section-255-20091216-020836.jpg'),
 (4, 'port des princes', 'Port Prince est un site magnifique du Cap Bon, avec une plage magnifique et de bons parcours de rand', '2015-05-27', '2015-05-26', 'https://farm3.staticflickr.com/2616/4086408143_517ab243d2_o.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `gallerie`
+--
+
+CREATE TABLE IF NOT EXISTS `gallerie` (
+  `id_image` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(200) NOT NULL,
+  PRIMARY KEY (`id_image`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -349,6 +362,120 @@ INSERT INTO `site_map` (`id`, `table_name`, `page_link`) VALUES
 (12, 'mailing_list', 'mailing_list/list.php'),
 (13, 'info_dartak', 'info_dartak/list.php'),
 (14, 'message_client', 'message_client/list.php');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `statistiques`
+--
+
+CREATE TABLE IF NOT EXISTS `statistiques` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `page` varchar(250) NOT NULL DEFAULT '',
+  `ip` varchar(15) NOT NULL DEFAULT '',
+  `host` varchar(60) NOT NULL DEFAULT '',
+  `navigateur` varchar(100) NOT NULL DEFAULT '',
+  `referer` varchar(250) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=92 ;
+
+--
+-- Contenu de la table `statistiques`
+--
+
+INSERT INTO `statistiques` (`id`, `date`, `page`, `ip`, `host`, `navigateur`, `referer`) VALUES
+(1, '2015-05-13 07:37:33', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(2, '2015-05-13 07:38:40', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(3, '2015-05-13 07:41:20', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(4, '2015-05-13 09:37:19', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(5, '2015-05-13 09:47:29', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(6, '2015-05-13 09:48:46', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(7, '2015-05-13 09:49:24', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(8, '2015-05-13 09:49:51', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(9, '2015-05-13 09:51:23', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(10, '2015-05-13 09:51:35', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(11, '2015-05-13 09:52:11', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(12, '2015-05-13 09:52:58', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(13, '2015-05-13 09:53:19', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(14, '2015-05-13 09:53:30', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(15, '2015-05-13 10:20:08', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(16, '2015-05-13 10:20:45', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(17, '2015-05-13 10:20:47', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(18, '2015-05-13 10:20:52', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(19, '2015-05-13 10:20:54', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(20, '2015-05-13 10:21:28', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(21, '2015-05-13 10:22:10', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(22, '2015-05-13 10:23:27', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(23, '2015-05-13 10:26:34', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(24, '2015-05-13 10:26:44', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(25, '2015-05-13 10:30:52', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(26, '2015-05-13 10:31:02', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(27, '2015-05-13 10:33:33', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(28, '2015-05-13 10:33:37', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(29, '2015-05-13 10:37:28', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(30, '2015-05-13 10:37:31', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(31, '2015-05-13 10:37:31', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(32, '2015-05-13 10:40:30', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(33, '2015-05-13 10:51:19', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(34, '2015-05-13 10:58:18', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(35, '2015-05-13 11:06:43', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(36, '2015-05-13 11:09:04', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(37, '2015-05-13 11:10:33', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(38, '2015-05-13 11:11:40', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(39, '2015-05-13 11:12:09', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(40, '2015-05-13 11:13:58', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(41, '2015-05-13 11:14:32', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(42, '2015-05-13 11:15:04', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(43, '2015-05-13 11:15:48', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(44, '2015-05-13 11:16:30', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(45, '2015-05-13 11:17:28', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(46, '2015-05-13 11:17:42', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(47, '2015-05-13 11:17:47', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(48, '2015-05-13 11:17:53', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(49, '2015-05-13 11:18:03', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(50, '2015-05-13 11:23:46', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(51, '2015-05-13 11:57:04', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(52, '2015-05-13 11:59:13', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(53, '2015-05-13 12:00:53', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(54, '2015-05-13 12:01:21', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(55, '2015-05-13 12:03:22', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(56, '2015-05-13 12:05:07', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(57, '2015-05-13 12:05:09', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(58, '2015-05-13 12:05:26', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(59, '2015-05-13 12:07:21', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(60, '2015-05-13 12:07:55', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(61, '2015-05-13 12:09:18', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(62, '2015-05-13 12:09:57', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(63, '2015-05-13 12:13:25', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(64, '2015-05-13 12:14:59', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(65, '2015-05-13 12:15:29', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(66, '2015-05-13 12:18:42', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(67, '2015-05-13 12:18:54', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(68, '2015-05-13 12:20:09', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(69, '2015-05-13 12:20:33', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(70, '2015-05-13 12:21:04', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(71, '2015-05-13 12:22:31', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(72, '2015-05-13 12:23:12', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(73, '2015-05-13 12:23:26', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(74, '2015-05-13 12:23:38', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(75, '2015-05-13 12:25:09', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(76, '2015-05-13 12:26:26', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(77, '2015-05-13 12:28:36', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(78, '2015-05-13 12:28:38', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(79, '2015-05-13 12:30:00', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(80, '2015-05-13 12:30:11', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(81, '2015-05-13 12:30:14', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(82, '2015-05-13 12:30:38', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(83, '2015-05-13 12:32:30', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(84, '2015-05-13 12:36:39', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(85, '2015-05-13 12:38:56', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(86, '2015-05-13 12:41:06', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(87, '2015-05-13 12:42:11', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(88, '2015-05-13 12:43:21', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(89, '2015-05-13 12:44:36', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(90, '2015-05-13 12:45:39', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', ''),
+(91, '2015-05-13 12:45:54', '/pfc/front/acceuil.php', '::1', 'MSI-C70-2OC', 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safa', '');
 
 --
 -- Contraintes pour les tables exportées

@@ -28,7 +28,7 @@ include_once 'menu_vertical.php';
 	
 	
 
-<h2> Titre Page</h2>
+<h2> Administration Dar-Tak</h2>
 
 <iframe width="100%"  src="" id="loader">
 
