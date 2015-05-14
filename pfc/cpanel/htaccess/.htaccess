@@ -1,0 +1,4 @@
+AuthName "Page d'administration protégée"
+AuthType Basic
+AuthUserFile "/wamp/www/pfc/cpanel/.htpasswd"
+Require valid-user

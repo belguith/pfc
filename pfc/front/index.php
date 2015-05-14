@@ -33,19 +33,24 @@ if ($row['login']==$login)
       session_start();
       $_SESSION['login']=$login;
       //$_SESSION['password']=$password;
-      
+
       $isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
 
-      $stat=1;
-	   
-	//HEADER('location:acceuil.php');
+      print_r($_SESSION);
+      if($row['role']==1)
+	     {
+        HEADER('location:../cpanel/index.php');
+       }
+       else
+
+       {
+        if($row['active']==1)
+        {HEADER('location:index.php');}else{echo  "votre compte est desactive </br>"; echo "contacter l'administrateur pour plus d'information";}
+       }
+	
     }	
-	else {
-			$stat=-1;
-			echo "erreur";
-		}
+	else {echo "erreur";}
   }
-  
   	
  
   
@@ -56,17 +61,28 @@ if ($row['login']==$login)
 ?>
 
 <html>
-        <head>
-        		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+    <head>
+        		
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
-		<meta charset="UTF-8" />
+		
 		 <link rel="stylesheet" href="css/popup_inscription.css" />
 		 
-		
+		 
 		<link rel="shortcut icon" href="../favicon.ico">
 		
-		<script type="text/javascript">
+		<!--JS Slider Entete -->
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400|Titillium+Web:400' rel='stylesheet' type='text/css'>
+		<link type='text/css' rel='Stylesheet' href='css/imageslidermaker.css' />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<script src='js/jquery.min.js'></script>
+		<script src='js/imageslidermaker.js'></script>
+		
+<!-- End Slider Principal  -->		
+<script type="text/javascript">
     window.onload = function() {
     var stat=<?php echo $stat ;?>;
     if(stat==1){
@@ -83,19 +99,14 @@ if ($row['login']==$login)
       alert('Identifiant ou mot de passe incorrecte !');
     }
     }
-    </script>
-
-    <!--JS Slider Entete -->
-		<script src="js/modernizr.custom.js"></script>
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400|Titillium+Web:400' rel='stylesheet' type='text/css'>
-		<link type='text/css' rel='Stylesheet' href='css/imageslidermaker.css' />
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<script src='js/jquery.min.js'></script>
-		<script src='js/imageslidermaker.js'></script>
+    </script>		
 		
+
+
 <script>
    $(function() {
+
+
      $('#imageslider').bjqs({
        width: '100%',
        height: 650,
@@ -108,13 +119,36 @@ if ($row['login']==$login)
        nexttext: '>'
      });
    });
-</script>	
-
-        </head>
-
-        <body>
 
 
+
+</script>
+ </head>
+    <body>
+	
+
+        <div id="bloc_page">
+		<!-- Begin Slider Principal  -->
+		  <div>
+                <div id='imageslider'>
+  <ul class='bjqs'>
+    <li class='slide-1'>
+      <div class='caption'>Des chambres luxueuses</div>
+    </li>
+    <li class='slide-2'>
+      <div class='caption'>Un espace convivial</div>
+    </li>
+    <li class='slide-3'>
+      <div class='caption'>Une ambiance relaxante</div>
+    </li>
+    <li class='slide-4'>
+      <div class='caption'>Un décor oriental</div>
+    </li>
+  </ul>
+</div>
+
+            </div>
+			
 			
 		
             <header>
@@ -240,44 +274,102 @@ if ($row['login']==$login)
 				
             </header>
             
-			<div id="container">
-			 
-                
-	
- 
-	
-        <div id="bloc_page">
-		
-<div>
-                <div id='imageslider'>
-  <ul class='bjqs'>
-    <li class='slide-1'>
-      <div class='caption'>Des chambres luxueuses</div>
-    </li>
-    <li class='slide-2'>
-      <div class='caption'>Un espace convivial</div>
-    </li>
-    <li class='slide-3'>
-      <div class='caption'>Une ambiance relaxante</div>
-    </li>
-    <li class='slide-4'>
-      <div class='caption'>Un décor oriental</div>
-    </li>
-  </ul>
-</div>
-
-            </div>
-			<!-- End Slider Principal  -->
-	
 			
+			
+			<div id="partie_haute">
+			
+			<div id="aboutus">
+			
+			<img src="img/logo_aboutus.png" class="logo_aboutus">
+			<div class="description">
+			<h2> Qui sommes nous ? </h2>
+			<p> <b> Dar Tak vous permet mieux connaitre notre Tunisie grâce à la variété des ateliers que nous organisons tout au long du séjour , des excursions dans l'intérieur du pays et des défilés pour la découverte de notre art vestimentaire typique . Nos visiteurs sont les bienvenus dans un monde différent pour profiter d'une ambiance relaxante  au décor oriental et des soins naturels. </b> </p>
+			
+			</div>
+			</div>
+			
+			<!-- Begin of flider testimonial  -->
+
+
+			<div id="aboutus">
+
+					<?php
+			$i=0;
+			$sql = "SELECT * FROM article ORDER BY date_article DESC";
+			 $resultart = mysql_query($sql) or die("Pb avec la requete: $request");
+			 $rowart=mysql_fetch_array($resultart);
+			 
+			 echo 	"<div id='premier_article'>";
+			echo 	"<img src='".$rowart{'image_article'}."' alt='image art'>";
+			echo "<div id='description_premier_aricle' >";
+			echo "<h3> '".$rowart{'lilbelle_article'}."'</h3>";
+			echo "<p> ".$rowart{'description_article'}." </p>";
+			echo "<a href='#' class='#''>voir plus</a>";
+			echo "</div></div>";
+
+			 
+
+			?>
+
+			
+			
+			<div id="deuxiem_article">
+			<img src="img/american-hachiko-agritourism-5.jpg" alt="img"></img>
+			<div id="description_article_secondaire"> Labourons la Terre
+			<a href="#" class="lien_article">voir plus</a>
+			</div>
+			</div>
+			
+			<div id="deuxiem_article">
+			<img src="img/american-hachiko-agritourism-5.jpg" alt="img"></img>
+			<div id="description_article_secondaire"> Prenant Soin de Notre Environnement
+			<a href="#" class="lien_article">voir plus</a>
+			</div>
+			
+			</div>
+			 
+			 
+			</div>
+			
+			</div>
+			<div>
 			
           
            		
            
+			
+			<div class="bloc_categories">
+				
+				<div class="bloc_rect">
+				<img src="img/chambre_3D.jpg" alt="hammam">
+				<div class="bloc_rect_description">Notre Maison<a href="#" class="lien_article" >Voir plus</a> </div>
+				</div>
+				
+				<div class="bloc_rect">
+				<img src="img/agri.jpg" alt="Atelier">
+				<div class="bloc_rect_description">Nos Ateliers<a href="#" class="lien_article" >Voir plus</a></div>
+				</div>
+				<div class="bloc_rect">
+				<img src="img/jam.jpg" alt="Evennement">
+				<div class="bloc_rect_description">Nos Evennements<a href="#" class="lien_article" >Voir plus</a> </div>
+				</div>
+				<div class="bloc_rect">
+				<img src="img/cous.jpg" alt="Cuisine">
+				<div class="bloc_rect_description">Notre Cuisine<a href="#" class="lien_article" >Voir plus</a> </div>
+				</div>
+				
+				</div>
+			
+			
 		   
-	</div>
 			
 			
+			<!-- Begin Slider Latest Post  -->
+			
+			
+			
+			<!-- End Slider Latest Post  -->
+
             <div class="footer">
               <div id="footer_gauche"> 
 			
@@ -301,9 +393,9 @@ if ($row['login']==$login)
 							<img src="img/instagram.png" class="insta"/>
 							</br>
 							<form name="newsletter" method="post">
-							<p class="newsletter"> Entrer votre adresse e-mail pour vous inscrire et recevoir les notifications des nouveaux articles par courriel </p>
-						     <input type="text" name="mail" placeholder="newsletter"> 
-							  <input type="submit" name="submit" value="valider" class="popup-button"> 
+							<p class="newsletter">recevoir les notifications des nouveaux articles par courriel </p>
+						     <input type="text" name="mail" placeholder="newsletter" class="newletter_input"> 
+							  <input type="submit" name="submit" value="valider" class="popup-button" > 
                             </form>
                     </dl>
                
@@ -316,7 +408,7 @@ if ($row['login']==$login)
 					     <dd class="titre_footer"> Nos partenaires</dd>
 						 <dd><img src="img/travel.png" class="partenaire"/></dd>
 						 <dd><img src="img/tunisair.png" class="partenaire"/></dd>
-						 <dd><img src="img/syphax.png" class="syphax"/></dd>
+						 <dd><img src="img/syphax.png" class="partenaire"/></dd>
                          
 
                         
@@ -332,7 +424,7 @@ if ($row['login']==$login)
             </div>
         </div>
 		
-		<script src="js/popup.js"></script>
+				<script src="js/popup.js"></script>
 				<script>
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
@@ -340,6 +432,72 @@ if ($row['login']==$login)
 <script src="js/cssParser.js"></script>
 
 		<script src="js/css-filters-polyfill.js"></script>
+
+
+		
+
+
+
+
+
+
+
+<!-- affichage du lecteur -->
+<audio preload="auto" autobuffer controls id="audio" autoplay> 
+<source src="Ritek_ma_naaref_ouin.mp3" type="audio/mp3" />
+<source src="Ritek_ma_naaref_ouin.ogg" type="audio/ogg" />
+<source src="Ritek_ma_naaref_ouin.wav" type="audio/wav" />
+
+</audio>	
+
+
+
+
+<script>
+
+var audio = document.getElementById('audio');
+ $('.audiocontrols a.play').on('click',function(e){ 
+  e.preventDefault(); audio.play(); 
+ });
+ $('.audiocontrols a.pause').on('click',function(e){ 
+  e.preventDefault(); 
+  audio.pause(); 
+ });
+ $('.audiocontrols a.stop').on('click',function(e){
+  e.preventDefault(); 
+  audio.pause(); 
+  audio.currentTime=0;
+ });
+
+</script>
+
+
+<style> 
+#audio{position: absolute;
+		top: 620px;
+		right: 0px;}
+.audiocontrols > .volume {width:100%; position:relative; height:14px} 
+.audiocontrols > .volume > .slider{position:relative;border-radius:5px;background:#dedede; width:100px;height:10px;display:inline-block}
+.audiocontrols > .volume > .slider > .knob{position:absolute;top:0;left:0;background:#999;border-radius:10px; width:10px; height:10px;cursor:pointer}
+</style>
+<div class="audiocontrols">
+        <a href="#" class="play"><i class="icon-play"></i></a>
+        <a href="#" class="pause"><i class="icon-pause"></i></a>
+        <a href="#" class="stop"><i class="icon-stop"></i></a>
+        <div class="volume">
+            <a href="#" class="down"><i class="icon-volume-down"></i></a>
+            <div class="slider"><span class="knob"></span></div>
+            <a href="#" class="up"><i class="icon-volume-up"></i></a>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
     </body>
-	
 </html>

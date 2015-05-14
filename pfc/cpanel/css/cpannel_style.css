@@ -115,4 +115,21 @@ border-left : 1px solid #393939;
 
 
 
+.titre_stat
+{
+font-family:arial;
+font-size:18px;
+color:#F5DEB3;
+margin:20px;
+display : inline-block;
+font-weight:bold;
+}
 
+.titre_date
+{
+font-family:arial;
+font-size:16px;
+color:#380202;
+margin:20px;
+
+}

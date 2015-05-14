@@ -11,18 +11,21 @@ error_reporting (E_ALL ^ E_DEPRECATED);
 // connexion à la base de donnée
 include_once ('data_base_connexion.php');
 
+echo "<nav>";
 // on écrit des liens permettant de naviguer entre les différentes pages de notre partie administration
-echo '<a class="titre_stat" href="./stat_jour.php">Les stats du jour</a><br />';
-echo '<a class="titre_stat" href="./stat_mois.php">Les stats du mois</a><br />';
-echo '<a class="titre_stat" href="./stat_annee.php">Les stats de l\'année</a><br /><br />';
-
+echo '<a class="titre_stat" href="./stat_jour.php">Les stats du jour</a>';
+echo '<a class="titre_stat" href="./stat_mois.php">Les stats du mois</a>';
+echo '<a class="titre_stat" href="./stat_annee.php">Les stats de l\'année</a>';
+echo "<nav>";
 echo '<p class="titre_date"> Voir les statistiques d\'une autre année :<br /><br /></p>';
+
+
 
 // formulaire permettant de choisir une date afin de voir les statistiques d'une autre année
 echo '<form action="./stat_annee.php" method="post">';
 echo '<select name="annee">';
 // on boucle sur 7 ans (à modifier à souhait)
-for($i = 2003; $i <= 2010; $i++) {
+for($i = 2010; $i <= 2017; $i++) {
 	echo '<option>'.$i.'</option>';
 }
 echo '</select>';
@@ -72,8 +75,8 @@ while ($data = mysql_fetch_array($result)) {
 
 	sscanf($date, "%4s-%2s-%2s %2s:%2s:%2s", $date_Y, $date_m, $date_d, $date_H, $date_i, $date_s);
 
-	if ($date_m < "10"){
-	$date_m = substr($date_m, -1);
+	if ($date_m < '10'){
+	$date_m = substr($date_m, 1);
 	}
 	$visite_par_mois[$date_m]=$visite_par_mois[$date_m]+1;
 }
@@ -89,7 +92,7 @@ for($i = 1; $i <= 12; $i++) {
 	echo '<p class="titre_date"> Mois : '.$i.' : 0 page vue<br /></p>';
 	}
 	else {
-	echo '<p class="titre_date">Mois : '.$i.' : '.$visite_par_mois[$i].' pages vues<br /> </p>';
+	echo '<p class="titre_date">Mois : '.$i.' : <span> '.$visite_par_mois[$i].' </span>  . pages vues<br /> </p>';
 	}
 }
 
@@ -111,7 +114,7 @@ $result = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_erro
 while ($data = mysql_fetch_array($result)) {
 	$nb_page = $data['nb_page'];
 	$page = $data['page'];
-	echo $nb_page.' '.$page.'<br />';
+	echo "<p class='pv'> <b> <span> > ". $nb_page.' </span> </b> visite sur <b> <span> '.$page.' </span></b></p><br />';
 }
 mysql_free_result($result);
 
@@ -124,7 +127,7 @@ $result = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_erro
 while ($data = mysql_fetch_array($result)) {
 	$nb_host = $data['nb_host'];
 	$host = $data['host'];
-	echo $nb_host.' '.$host.'<br />';
+	echo "<span>".$nb_host.' '.$host.'</span><br />';
 }
 mysql_free_result($result);
 
@@ -150,10 +153,13 @@ $result = mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_erro
 while ($data = mysql_fetch_array($result)) {
 	$nb_navigateur = $data['nb_navigateur'];
 	$navigateur = $data['navigateur'];
-	echo $nb_navigateur.' '.$navigateur.'<br />';
+	echo  "<span>".$nb_navigateur.' '.$navigateur.' </span><br />';
 }
 mysql_free_result($result);
 mysql_close();
+
+
 ?>
+
 </body>
 </html>

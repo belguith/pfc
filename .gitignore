@@ -227,6 +227,7 @@ medical-link/*
 pfc.rar
 testmysql.php
 /TpSymfony/*
+pChart/*
 TpSymfony/*
 TpSymfony/app/*
 TpSymfony/app/cache/dev/annotations/43b555f9eb0fa2504aebdf7dc2e143b0f703ed31#indexAction.cache.php

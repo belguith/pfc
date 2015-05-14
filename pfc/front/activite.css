@@ -661,3 +661,64 @@ a:focus {
 	text-align: center;
 }
 
+
+
+#login_form ul {
+    padding: 0;
+    margin: 0;
+  z-index : 1;
+}
+
+
+#login_form li {
+    display: inline;
+    position: relative;
+}
+
+#login_form ul ul {
+    position: absolute;
+  top : 20px;
+  right :  -40px;
+  border : 1px solid;
+  border-radius : 10px;
+  background-color : #451602;
+  width : 350px;
+  height : 350px;
+    display: none;
+  background-color: rgba(69, 22, 2, 0.6);
+}
+#login_form li:hover ul {
+    display: block;
+  
+}
+
+
+.connexion_lien {
+  
+border: 3px solid #FFF !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  background: transparent !important;
+  color: #FFF !important;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 1em !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  text-align: center;
+  cursor: pointer !important;
+  display: inline-block !important;
+  width : 150px !important;
+  max-width : 300px;
+  min-height : 20px;
+  margin: 2px 2px 2px 2px !important;
+  margin-right: -50px !important;
+  border-radius: 2px !important;
+  -webkit-transition: all 0.3s !important;
+  -o-transition: all 0.3s !important;
+  transition: all 0.3s !important;
+  }
+  
+.connexion_lien:hover{
+background : rgba(128,128,128,0.5) !important;
+
+}

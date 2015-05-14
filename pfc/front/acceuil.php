@@ -196,6 +196,7 @@ if ($row['login']==$login)
 				</div>
 			</div>
 		</div>
+												
 		
 		<!-- End POPUP  -->
                
@@ -205,11 +206,11 @@ if ($row['login']==$login)
                 <nav>
 				
                     <ul>
-                        <li><a href="acceuil.php">Accueil</a> </li>
+                        <li><a href="index.php">Accueil</a> </li>
 						<li> | </li>
 						<li><a href="activites.php">Activitées</a></li>
 						<li> | </li>
-                        <li><a href="ateliers_principal.html">Ateliers</a></li>
+                        <li><a href="ateliers_principal.php">Ateliers</a></li>
 						<li> | </li>
 						<li><a href="reservation.php">Tarifs & Réservation</a></li>
 						<li> | </li>

@@ -1,6 +1,59 @@
 <?php
- include_once('data_base_connexion.php');
- ?>
+error_reporting(E_ALL ^ E_DEPRECATED);
+
+include_once ('../cpanel/record_stat.php'); 
+include_once('data_base_connexion.php');
+session_start();
+
+$stat=0;
+
+if(isset($_SESSION['login'])){
+  $stat=1;
+}
+
+
+
+
+				
+if(isset($_POST['login']))
+{
+ $login=$_POST['login'];
+$password=$_POST['password'];
+$request = "SELECT * FROM client WHERE (login ='".$login."' AND motdepasse = '".$password."' )";
+               $result = mysql_query($request) or die("Pb avec la requete: $request");
+                
+
+while($row=mysql_fetch_array($result))
+{
+	
+if ($row['login']==$login)
+  {
+	if ($row['motdepasse']==$password)
+    {
+      session_start();
+      $_SESSION['login']=$login;
+      //$_SESSION['password']=$password;
+      
+      $isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
+
+      $stat=1;
+	   
+	//HEADER('location:acceuil.php');
+    }	
+	else {
+			$stat=-1;
+			echo "erreur";
+		}
+  }
+  
+  	
+ 
+  
+}
+
+  }
+
+?>
 
 <html>
     <head>
@@ -32,7 +85,7 @@
 		
 		
             <header>
-				<!-- Begin POPUP -->
+			<!-- Begin POPUP -->
 
 		<div class="modal blur-effect" id="popup">
 			<div class="popup-content">
@@ -48,14 +101,40 @@
 				    <input type="tel" placeholder="Numèro de téléphone" name="num_tel" required pattern=".{8,}" maxlength="15"/>
 					<input type="text" placeholder="Pseudo" name="pseudo" required pattern=".{6,}" />
 					<input type="password" placeholder="Mot de passe" name="motdepasse" equired pattern=".{6,}"/>
+					<div id="captcha_bloc">
+						<form action="verification_captcha.php" method="post">
+							
+							<label for="captcha">Recopiez le mot : </br><img src="captcha.php" alt="Captcha" /></label> 
+							<input type="text" name="captcha" id="captcha" />
+							<button  name="captcha_btn" class="popup-button">Valider</button>
+							
+						</form>
+
+					 </div>
+
+					<input name="submit" type="submit"  class="sub" value="" />
+
 					
-					<input type="submit" class="popup-button" value="je m'inscris" />
+					<?php
+					if(isset($_POST['captcha_btn']))
+					{
+						if(isset($_POST['submit']))
+						{
+
+						echo "<p> Your Acount Have been made </p>";
+					
+						}
+					}
+					
+					?>
+					
 					</form>
 					
 					<div class="close"></div>
 				</div>
 			</div>
 		</div>
+												
 		
 		<!-- End POPUP  -->
                
@@ -64,12 +143,12 @@
                 
                 <nav>
 				
-                     <ul>
-                        <li><a href="acceuil.php">Accueil</a> </li>
+                    <ul>
+                        <li><a href="index.php">Accueil</a> </li>
 						<li> | </li>
 						<li><a href="activites.php">Activitées</a></li>
 						<li> | </li>
-                        <li><a href="ateliers_principal.html">Ateliers</a></li>
+                        <li><a href="ateliers_principal.php">Ateliers</a></li>
 						<li> | </li>
 						<li><a href="reservation.php">Tarifs & Réservation</a></li>
 						<li> | </li>
@@ -85,14 +164,15 @@
 				
 				<div id="login_form">
 				<ul>
-				<li>
-				<a href="#" class="connexion_lien" >Connexion</a>
+				<li id="connexion_li">
+
+				<a href="" class="connexion_lien">Connexion</a>
 				<!-- Begin show form on hover  -->
 				<ul>
-					<form name="Connexion" action="">
+					<form name="Connexion" method="POST" action="" >
 						<li> <input type="text" placeholder="Login" name="login"></li>
-						<li><input type="password" placeholder="Password" name="Password"></li>
-						<li><input type="submit"  name="connect-btn" value="connexion" class="popup-button"></li>
+						<li><input type="password" placeholder="Password" name="password"></li>
+						<li><input type="submit"  name="connexion_btn" value="connexion" class="popup-button"></li>
 						
 
 					</form>
@@ -102,6 +182,20 @@
 				<!-- end show form on hover  -->
 				
 				</li>
+
+				<li id="deconnexion_li">
+					<a href="" class="connexion_lien"> Deconnexion </a>
+				<ul>
+					<form name="deconnexion" method="POST" action="user_disconnect.php" >
+						<li> <?php echo $_SESSION['login'];  ?></li>
+						<li><input type="submit"  name="deconnexion_btn" value="Deconnexion" class="popup-button"></li>
+						 
+					</form>
+				 		
+				</ul>
+				<!-- end show form on hover  -->
+
+				</li>
 				
 				</ul>
 				
@@ -110,6 +204,7 @@
 				
 				
 				</div>
+				
             </header>
             
 			<div id="container">

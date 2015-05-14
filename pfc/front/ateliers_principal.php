@@ -56,17 +56,24 @@ if ($row['login']==$login)
 ?>
 
 <html>
-        <head>
+    <head>
         		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
-		<meta charset="UTF-8" />
-		 <link rel="stylesheet" href="css/popup_inscription.css" />
+		<link rel="stylesheet" href="css/popup_inscription.css" />
 		 
 		
 		<link rel="shortcut icon" href="../favicon.ico">
-		
-		<script type="text/javascript">
+		<!--JS Slider Entete -->
+		<script src="js/modernizr.custom.js"></script>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400|Titillium+Web:400' rel='stylesheet' type='text/css'>
+		<link type='text/css' rel='Stylesheet' href='css/imageslidermaker.css' />
+		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+		<script src='js/jquery.min.js'></script>
+		<script src='js/imageslidermaker.js'></script>
+	
+<script type="text/javascript">
     window.onload = function() {
     var stat=<?php echo $stat ;?>;
     if(stat==1){
@@ -83,41 +90,18 @@ if ($row['login']==$login)
       alert('Identifiant ou mot de passe incorrecte !');
     }
     }
-    </script>
-
-    <!--JS Slider Entete -->
-		<script src="js/modernizr.custom.js"></script>
-		<script src="js/jquery-1.11.1.min.js"></script>
-		<link href='//fonts.googleapis.com/css?family=PT+Sans+Narrow:400|Titillium+Web:400' rel='stylesheet' type='text/css'>
-		<link type='text/css' rel='Stylesheet' href='css/imageslidermaker.css' />
-		<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<script src='js/jquery.min.js'></script>
-		<script src='js/imageslidermaker.js'></script>
+    </script>		
+			
+	
+ </head>
+    <body>
+	
+        <div id="bloc_page">
 		
-<script>
-   $(function() {
-     $('#imageslider').bjqs({
-       width: '100%',
-       height: 650,
-       animtype: 'fade',
-       responsive: false,
-       automatic: true,
-       keyboardnav: false,
-       markertype: '_',
-       prevtext: '<',
-       nexttext: '>'
-     });
-   });
-</script>	
-
-        </head>
-
-        <body>
-
-
+		  
 			
 		
-            <header>
+             <header>
 			<!-- Begin POPUP -->
 
 		<div class="modal blur-effect" id="popup">
@@ -241,44 +225,53 @@ if ($row['login']==$login)
             </header>
             
 			<div id="container">
-			 
-                
-	
- 
-	
-        <div id="bloc_page">
-		
-<div>
-                <div id='imageslider'>
-  <ul class='bjqs'>
-    <li class='slide-1'>
-      <div class='caption'>Des chambres luxueuses</div>
-    </li>
-    <li class='slide-2'>
-      <div class='caption'>Un espace convivial</div>
-    </li>
-    <li class='slide-3'>
-      <div class='caption'>Une ambiance relaxante</div>
-    </li>
-    <li class='slide-4'>
-      <div class='caption'>Un décor oriental</div>
-    </li>
-  </ul>
-</div>
+			
+			
+			<h2> Les Ateliers DarTak </h2>
+			
+			<div class="description_atelier"> 
+			 <p class="desc_at">     Au coeur de DarTak, Nos chefs ont aménagé un espace convivial dédié à la gourmandise  pour vous faire découvrir les plats typiques tunisiens: bienvenue dans l’art culinaire et la gastronomie !
 
-            </div>
-			<!-- End Slider Principal  -->
-	
+Des cours de cuisine pour satisfaire vos papilles avec de nombreuses et goûteuses saveurs, des animations culinaires pour des occasions exceptionnelles : partagez un moment unique sous le signe de la bonne humeur culinaire.
+
+Consultez notre programme et contactez-nous.  </p>
+			 </div>
 			
 			
-          
-           		
-           
-		   
-	</div>
+			<div class="bloc_categories">
+				
+				
+				<div class="bloc_rect">
+				<img src="img/poterie.jpg" alt="artisanat">
+				<div class="bloc_rect_description"> Ateliers Artisanals <a href="atelier_artisanal.php" class="lien_article" >Voir plus</a></div>
+				</div>
+				<div class="bloc_rect">
+				<img src="img/agri.jpg" alt="agricole">
+				<div class="bloc_rect_description"> Ateliers Agricoles<a href="atelier_agricole.php" class="lien_article" >Voir plus</a> </div>
+				</div>
+
+				<div class="bloc_rect">
+				<img src="img/vtt.jpg" alt="agricole">
+				<div class="bloc_rect_description"> Excursion<a href="Excursion.php" class="lien_article" >Voir plus</a> </div>
+				</div>
+				
+				<div class="bloc_rect">
+				<img src="img/cous.jpg" alt="plat">
+				<div class="bloc_rect_description">Ateliers Culinaires <a href="art_culinaire.php" class="lien_article" >Voir plus</a> </div>
+				</div>
+				
+				</div>
 			
 			
-            <div class="footer">
+			
+			
+			
+			</div>
+			
+			
+			
+			
+			<div class="footer">
               <div id="footer_gauche"> 
 			
                     <dl class="plan_site">
@@ -301,9 +294,9 @@ if ($row['login']==$login)
 							<img src="img/instagram.png" class="insta"/>
 							</br>
 							<form name="newsletter" method="post">
-							<p class="newsletter"> Entrer votre adresse e-mail pour vous inscrire et recevoir les notifications des nouveaux articles par courriel </p>
-						     <input type="text" name="mail" placeholder="newsletter"> 
-							  <input type="submit" name="submit" value="valider" class="popup-button"> 
+							<p class="newsletter">recevoir les notifications des nouveaux articles par courriel </p>
+						     <input type="text" name="mail" placeholder="newsletter" class="newletter_input"> 
+							  <input type="submit" name="submit" value="valider" class="popup-button" > 
                             </form>
                     </dl>
                
@@ -316,7 +309,7 @@ if ($row['login']==$login)
 					     <dd class="titre_footer"> Nos partenaires</dd>
 						 <dd><img src="img/travel.png" class="partenaire"/></dd>
 						 <dd><img src="img/tunisair.png" class="partenaire"/></dd>
-						 <dd><img src="img/syphax.png" class="syphax"/></dd>
+						 <dd><img src="img/syphax.png" class="partenaire"/></dd>
                          
 
                         
@@ -330,6 +323,11 @@ if ($row['login']==$login)
 			   
 			   
             </div>
+        </div>      
+			
+			
+            
+			
         </div>
 		
 		<script src="js/popup.js"></script>
@@ -341,5 +339,4 @@ if ($row['login']==$login)
 
 		<script src="js/css-filters-polyfill.js"></script>
     </body>
-	
 </html>
