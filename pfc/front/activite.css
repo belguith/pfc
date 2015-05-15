@@ -661,36 +661,46 @@ a:focus {
 	text-align: center;
 }
 
+#login_form
+{
+position : relative  !important;
+float : right  !important;
+margin-top :2%  !important;
+margin-right : 5%  !important;
+  
 
+}
 
 #login_form ul {
-    padding: 0;
-    margin: 0;
-  z-index : 1;
+    padding: 0  !important;
+    margin: 0  !important;
+  z-index : 1  !important;
 }
 
 
 #login_form li {
-    display: inline;
-    position: relative;
+    display: inline  !important;
+    position: relative  !important;
 }
 
 #login_form ul ul {
-    position: absolute;
-  top : 20px;
-  right :  -40px;
-  border : 1px solid;
-  border-radius : 10px;
-  background-color : #451602;
-  width : 350px;
-  height : 350px;
-    display: none;
-  background-color: rgba(69, 22, 2, 0.6);
+    position: absolute  !important;
+  top : 20px  !important;
+  right :  -40px  !important;
+  border : 1px solid  !important;
+  border-radius : 10px  !important;
+  background-color : #451602  !important;
+  width : 350px  !important;
+  height : 350px  !important;
+    display: none  !important;
+  background-color: rgba(69, 22, 2, 0.6)  !important;
 }
 #login_form li:hover ul {
-    display: block;
+    display: block  !important;
   
 }
+
+
 
 
 .connexion_lien {

@@ -206,7 +206,7 @@ if ($row['login']==$login)
 					<a href="" class="connexion_lien"> Deconnexion </a>
 				<ul>
 					<form name="deconnexion" method="POST" action="user_disconnect.php" >
-						<li> <?php echo $_SESSION['login'];  ?></li>
+						<li> </li>
 						<li><input type="submit"  name="deconnexion_btn" value="Deconnexion" class="popup-button"></li>
 						 
 					</form>

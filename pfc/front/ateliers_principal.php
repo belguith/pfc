@@ -57,7 +57,8 @@ if ($row['login']==$login)
 
 <html>
     <head>
-        		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+        		<meta charset="utf-8" />
+         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
 		<link rel="stylesheet" href="css/popup_inscription.css" />

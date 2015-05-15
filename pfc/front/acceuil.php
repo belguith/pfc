@@ -57,13 +57,14 @@ if ($row['login']==$login)
 
 <html>
     <head>
-        		
+         <meta charset="utf-8" />
+         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">		
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
 		
 		 <link rel="stylesheet" href="css/popup_inscription.css" />
 		 
-		 
+		
 		<link rel="shortcut icon" href="../favicon.ico">
 		
 		<!--JS Slider Entete -->
@@ -337,12 +338,12 @@ if ($row['login']==$login)
 				
 				<div class="bloc_rect">
 				<img src="img/chambre_3D.jpg" alt="hammam">
-				<div class="bloc_rect_description">Notre Maison<a href="#" class="lien_article" >Voir plus</a> </div>
+				<div class="bloc_rect_description">Notre Maison<a href="galerie.php" class="lien_article" >Voir plus</a> </div>
 				</div>
 				
 				<div class="bloc_rect">
 				<img src="img/agri.jpg" alt="Atelier">
-				<div class="bloc_rect_description">Nos Ateliers<a href="#" class="lien_article" >Voir plus</a></div>
+				<div class="bloc_rect_description">Nos Ateliers<a href="ateliers_principal.php" class="lien_article" >Voir plus</a></div>
 				</div>
 				<div class="bloc_rect">
 				<img src="img/jam.jpg" alt="Evennement">
@@ -438,7 +439,7 @@ if ($row['login']==$login)
 
 
 <!-- affichage du lecteur -->
-<audio preload="auto" autobuffer controls id="audio" autoplay> 
+<audio preload="auto" autobuffer controls id="audio"> 
 <source src="Ritek_ma_naaref_ouin.mp3" type="audio/mp3" />
 <source src="Ritek_ma_naaref_ouin.ogg" type="audio/ogg" />
 <source src="Ritek_ma_naaref_ouin.wav" type="audio/wav" />

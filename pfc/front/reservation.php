@@ -61,6 +61,7 @@ if ($row['login']==$login)
 <html>
         <head>
         <meta charset="utf-8" />
+         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <link rel="stylesheet" href="css/global.css" />
         <title>Respirez vous êtes à Dar-Tak</title>
 		<meta charset="UTF-8" />
